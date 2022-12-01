@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Prueba1.js"></script>
+</head>
+<body>
+    <script>
+        document.write("Hola Mundo estoy aprendiendo java Script");
+        // console.log("Que bien");
+        // Empiezan por $,_ o una letra
+        // Despues letras _,numeros
+        // Case Sensitive
+        /*
+            Comentarios 
+        */
+        alert("Hola Mundo JS");
+
+        //Devuelve un true o un False
+        confirm("¿Eres tu?");
+
+        prompt("Introduce el nombre");
+        alert(`Hola ${prompt("Introduce el nombre","Lucrecio")}`);
+        
+        var edad=prompt("Introduce la edad");
+        // If
+        if(edad>18){
+            document.write("\nEres mayor de edad");
+        }else if(edad==18){
+            document.write("<br>Ya puedes entrar en la carcel");
+        }else{
+            document.write("\nEres menor");
+        }
+
+        // While
+        while (condition) {
+            
+        }
+        // do while
+        do {
+            
+        } while (condition);
+        // for
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            
+        }
+        // Control de bucle break,continue
+        Math.random();
+        /*
+        Del cero al 10
+        > parseInt(Math.random()*11)
+        6
+        Del 1 al 10
+        > parseInt(Math.random()*10+1)
+        6
+        Del 6 al 10
+        > parseInt(Math.random()*5+6)
+        6
+        n....m
+        Math.random()*((m-n)+1)+n
+        */
+        /*isNaN() nos permite saber si no es un Numero*/
+    </script>
+</body>
+</html>
