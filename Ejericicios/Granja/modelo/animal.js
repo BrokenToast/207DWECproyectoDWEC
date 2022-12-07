@@ -1,5 +1,4 @@
-class Animal{
-    numIdentificacion;
+export default class Animal{
     enfermo=false;
     constructor(nombre,numPatas){
         this.nombre=nombre;
@@ -11,17 +10,17 @@ class Animal{
         for (let i = 1; i <= 5; i++) {
             id.concat("",Math.random()*9);
         }
-        return id;
+        this.numID=id;
     }
     toString(){
         return this.nombre+"/"+this.numID;
     }
     curar(){
         if(this.enfermo){
-            return this.nombre+" esta sano";
+            alert('Esta Sana');
         }else{
             this.enfermo=true;
-            return this.nombre+" ya esta curada :D";
+            alert(this.nombre+"/"+this.numID+`.A sido curada con exito.`);
         }
     }
 }
