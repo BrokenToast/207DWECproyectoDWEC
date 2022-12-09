@@ -1,4 +1,4 @@
-export default class Animal{
+export class Animal{
     enfermo=false;
     constructor(nombre,numPatas){
         this.nombre=nombre;
@@ -6,11 +6,11 @@ export default class Animal{
         this.numID=this.cambiarID();
     }
     cambiarID(){
-        id="";
+        let id=[];
         for (let i = 1; i <= 5; i++) {
-            id.concat("",Math.random()*9);
+            id.push(parseInt(Math.random()*9));
         }
-        this.numID=id;
+        return id.join("");
     }
     toString(){
         return this.nombre+"/"+this.numID;

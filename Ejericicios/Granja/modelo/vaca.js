@@ -1,5 +1,5 @@
-import Animal from './Animal.js';
-export default class Vaca extends Animal{
+import {Animal} from './animal.js';
+export class Vaca extends Animal{
     litrosLeche=1;
     constructor(nombre){
         super(nombre,4);
@@ -10,7 +10,7 @@ export default class Vaca extends Animal{
             if(this.litrosLeche==18){
                 alert(this.nombre+"/"+this.numID+". Tiene que ser ordeñada.");
             } 
-            if(this.litrosLeche<=28){
+            if(this.litrosLeche==28){
                 this.enfermo=true;
                 alert(this.nombre+"/"+this.numID+".Mal, ahora la pobre esta enferma.");
                 break;
@@ -21,8 +21,8 @@ export default class Vaca extends Animal{
         if(this.enfermo){
             alert(this.nombre+"/"+this.numID+".Esta enferma no puede ser ordeñada");
         }else{
-            this.litrosLeche=1;
             alert(this.nombre+"/"+this.numID+`.Se a ordeñado ${this.litrosLeche-1}`);
+            this.litrosLeche=1;
         }
     }
     curar(){

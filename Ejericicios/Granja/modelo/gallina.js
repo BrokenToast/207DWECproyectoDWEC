@@ -1,5 +1,5 @@
-import Animal from 'animal.js';
-export default class Gallina extends Animal{
+import {Animal} from './animal.js';
+export class Gallina extends Animal{
     estadoHuevo=0;
     constructor(nombre){
         super(nombre,2);
