@@ -1,5 +1,5 @@
-import {Vaca} from "../modelo/vaca.js";
-import {Gallina} from "../modelo/gallina.js";
+import {Vaca} from "./vaca.js";
+import {Gallina} from "./gallina.js";
 export class Granja{
     aVacas=[];
     aGallinas=[];
@@ -24,6 +24,9 @@ export class Granja{
         console.log(sobrante);
     }
     ordeyarVacas(){
+        if(this.aVacas.length==0){
+            throw new Error("No hay vacas");
+        }
         for (const vaca of this.aVacas) {
             vaca.ordeyar();    
         }
@@ -37,8 +40,6 @@ export class Granja{
         for (const gallina of this.aGallinas) {
             gallina.comer(comen);    
         }
-        console.log(sobrante);
-        console.log(this.aGallinas);S
     }
     comprarVacas(cantidad){
         for (let i= 0;  i<cantidad; i++) {
@@ -62,12 +63,18 @@ export class Granja{
         }
     }
     venderVacas(cantidad){
+        if(this.aVacas.length==0){
+            throw new Error("No hay vacas");
+        }
         if((this.aVacas.length-cantidad)<0){
             throw new Error("No hay suficientes vascas");
         }
         this.aVacas.splice(0,cantidad);
     }
     venderGallinas(cantidad){
+        if(this.aGallinas.length==0){
+            throw new Error("No hay gallinas");
+        }
         if((this.aGallinas.length-cantidad)<0){
             throw new Error("No hay suficientes gallinas");
         }
@@ -77,6 +84,9 @@ export class Granja{
         return (`${this.#codigoGranja} tiene ${this.aVacas.length} vacas y ${this.aGallinas.length} gallinas`);
     }
     verAnimalesEnfermos(){
+        if(this.aVacas.length==0){
+            throw new Error("No hay vacas");
+        }
         let cadenaVacas=[];
         for (const vaca of this.aVacas) {
             if(vaca.enfermo){
@@ -86,12 +96,15 @@ export class Granja{
         alert(cadenaVacas.join(""));
     }
     curar(){
+        if(this.aVacas.length==0){
+            throw new Error("No hay vacas");
+        }
         for (const vaca of this.aVacas) {
             vaca.curar();    
         }
     }
     #comprobarCodigoGranja(codigo){
-        let exp=/[0-9]{10}[a-z]/gi;
+        let exp=/[aeiouAEOU][0-9]{10}[a-z]/gi;
         return exp.test(codigo);
     }
     #buscarAnimal(id,aAnimal){

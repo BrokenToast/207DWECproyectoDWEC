@@ -1,8 +1,8 @@
-import {Granja} from '../controlador/granja.js';
+import {Granja} from '../modelo/granja.js';
 let cantidad;
-let granjaManolo=new Granja("1234567891A");
+let granjaManolo=new Granja("a1234567891A");
 let opcion=prompt("1. info. Granja\n 2. Comprar Vacas \n 3. Comprar Gallinas\n 4.Vender Vacas\n 5. Vender Gallinas \n 6. Dar de comer vacas \n 7. Dar de comer gallinas \n 8. Ordeñar \n 9. Ver animaes enfermos\n 10.Curar\n 0. Salir");
-while(opcion!="0"){
+while(opcion!="0" && opcion!=null){
     switch (opcion) {
         case "1":
             alert(granjaManolo.toString());
@@ -48,13 +48,25 @@ while(opcion!="0"){
             }
             break;
         case "8":
-            granjaManolo.ordeyarVacas();
+            try{
+                granjaManolo.ordeyarVacas();
+            } catch (error) {
+                alert(error.message);   
+            }
             break;
         case "9":
-            granjaManolo.verAnimalesEnfermos();
+            try{
+                granjaManolo.verAnimalesEnfermos();
+            } catch (error) {
+                alert(error.message);   
+            }
             break;
         case "10":
-            granjaManolo.curar();
+            try{
+                granjaManolo.curar();
+            } catch (error) {
+                alert(error.message);   
+            }
             break;
         default:
             alert("La opcion no existe");
