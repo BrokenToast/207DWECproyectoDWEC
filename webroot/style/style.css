@@ -1,0 +1,204 @@
+/*Globales*/
+*{
+    box-sizing: border-box;
+}
+body{
+    min-width: 1060px;
+    background-color: black;
+    background-image: url("../../doc/javascript-3.jpg");
+    background-position-x: -350px;
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+/*Cabecero*/
+header{
+    margin: 20px 0px 20px 0px;
+}
+header>h1{
+    font-size: 4em;
+    font-weight: 800;
+    text-decoration: underline;
+    text-align: center;
+    color: white;
+    text-shadow: 10px 0px 0px gray;
+}
+/*Menu*/
+label[for="open"]{
+    min-width: 81px; min-height:29px;
+    width:6vw; height: 4vh;
+    line-height: 4vh;
+    margin-left: 2%;
+    border-radius: 6px;
+    border: 2px solid gray;
+    display: block;
+    background-color: white;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+nav>ul{
+    min-width: 138px;
+    width: 10vw; height: 100vh;
+    background-color: white;
+    position: absolute;
+    top:0;left:-200px;
+    transition: left 0.3s ease-in-out;
+}
+/*Botones de practicas*/
+nav li>label{
+    min-width: 121px;
+    width: 9vw;
+    margin: 10px 0px 0px 10px;
+    padding: 3%;
+    display: block;
+    font-size: 1.25em;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+nav li>a{
+    min-width: 121px;
+    width: 9vw;
+    margin: 10px 0px 0px 10px;
+    padding: 3%;
+    display: block;
+    font-size: 1.25em;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+/*Boton de cerrar*/
+input{
+    display: none;
+}
+/*Mecanicas menu*/
+nav label:hover{
+    background-color: rgb(100, 100, 100);
+}
+nav a:hover{
+    background-color: rgb(100, 100, 100);
+}
+#open:checked~ul{
+    left: 0%;
+}
+#close:checked~.submenu{
+    left: -100%;
+}
+/*Sub menu*/
+.submenu{
+    width: 60vw;
+    padding-left: 1%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    border: 3px solid gray;
+    display: block;
+    position: absolute;
+    top: 0; right: -80%;
+    background-color: white;
+    transition: all 1s ease;
+    z-index: 10;
+}
+.submenu img{
+    width: 50px; height: 50px;
+    display: block;
+    margin: 0px auto;
+}
+.submenu>tr{
+    margin-bottom: 10;
+}
+.submenu tr,td,th{
+    border: 2px solid black;
+    border-collapse: separate;
+}
+.submenu>tr th,td:nth-child(1){
+    display: block;
+    border: none;
+}
+.submenu>th,tr td:nth-child(2){
+    width: 6vw;
+}
+/*Mecanicas Menu*/
+
+#openPractica1:checked~ul label[for="openPractica1"]{
+    background-color: blue;
+}
+#openPractica2:checked~ul label[for="openPractica2"]{
+    background-color: blue;
+}
+#openPractica3:checked~ul label[for="openPractica3"]{
+    background-color: blue;
+}
+#openPractica4:checked~ul label[for="openPractica4"]{
+    background-color: blue;
+}
+#openPractica5:checked~ul label[for="openPractica5"]{
+    background-color: blue;
+}
+#openGranja:checked~ul label[for="openGranja"]{
+    background-color: blue;
+}
+#openExamen:checked~ul label[for="openExamen"]{
+    background-color: blue;
+}
+
+#openPractica1:checked~.submenu:nth-of-type(1){
+    right: 0;
+}
+#openPractica2:checked~.submenu:nth-of-type(2){
+    right: 0;
+}
+#openPractica3:checked~.submenu:nth-of-type(3){
+    right: 0;
+}
+#openPractica4:checked~.submenu:nth-of-type(4){
+    right: 0;
+}
+#openPractica5:checked~.submenu:nth-of-type(5){
+    right: 0;
+}
+#openGranja:checked~.submenu:nth-of-type(7){
+    right: 0;
+}
+#openExamen:checked~.submenu:nth-of-type(6){
+    right: 0;
+}
+/*Contenido*/
+main{
+    margin-bottom: 10%;
+    z-index: 1;
+}
+main>div{
+    width: 40vw;
+    padding: 20px;
+    box-sizing: content-box;
+    position: absolute;
+    right:5%;
+    top:12%;
+    background-color: white;
+}
+main h2{
+    margin-bottom: 1%;
+    font-size: 1.6em;
+    font-weight: 600;
+    text-decoration: underline;
+}
+main iframe{
+    width:40vw;height:60vh;
+    border:2px solid black;
+}
+/*Pie de pagina*/
+footer{
+    width: 100%;height: 10%;
+    padding-top: 2%;
+    padding-left: 1%;
+    position: fixed;
+    bottom:0px;
+    background-color: white;
+}
+footer>*{
+    display: inline;
+}
+footer>a:nth-of-type(2){
+    margin: 5%
+}
