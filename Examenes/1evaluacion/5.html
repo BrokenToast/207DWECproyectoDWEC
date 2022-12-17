@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    expUser=/^[a-zñ0-9:.-_]{8,15}$/gim;
+    expNumero=/^((\+34)|(0034)|(\(\+34\))|(\(0034\)))[679][0-9]{8}$/;
+    cantidad=/[\w]{8,18}/gi;
+    mayuscula=/[A-ZÑ]/g;
+    minuscula=/[a-zñ]/g;
+    expnumero=/[0-9]/g;
+    caracterEspecial=/[\W]/g;
+    let usuario=prompt("El nombre puede contener letras mayuscular y menuscular,numeros|:|.|-|.");
+    while (!expUser.test(usuario)) {
+        alert("Usuario no valido");
+        let usuario=prompt("El nombre puede contener letras mayuscular y menuscular,numeros|:|.|-|.");
+    }
+    let numero=prompt("Introduce el numero de telefono(+34|0034|(+34)|(0034))");
+    while (!expNumero.test(numero)) {
+        alert("Numero no valido");
+        let numero=prompt("Introduce el numero de telefono(+34|0034|(+34)|(0034))");
+    }
+    
+    do {
+        let password=prompt("Introduce una contraseña debe contener 8-18 caracteres, al ")
+        ok=true;
+        if(!cantidad.test(password)){
+            alert("Cantidad de caracteres insuficientes");
+        }if (!mayuscula.test(password)) {
+            alert("No contiene mayusculas");
+        } if (!minuscula.test(password)){
+            alert("No contiene minuscular");
+        } if (!expnumero.test(password)) {
+            alert("No contiene numeros");
+        } if (!caracterEspecial.test(password)) {
+            alert("No contiene caracteres especiales");
+        } else {
+            ok=false;
+        }
+    } while (ok);
+    </script>
+</body>
+</html>
