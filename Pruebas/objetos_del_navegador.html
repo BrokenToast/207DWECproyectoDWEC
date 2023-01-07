@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ventana"></div>
+    <script>
+        //windows
+        // Navigator contiene propiedades que almacena informacion del navegador
+        // Screen contiene información sobre la pantalla
+        // Location contiene informacion sobre la url y metodos
+        // history contiene metodos para movernos por el historial del navegador 
+        // Objeto Windows es una ventana abierta.
+        var texto;
+
+        window.name="Mi primera ventana";
+        texto="La ventana se llama "+window.name+"<hr>";
+        texto+="El tamaño de la ventana "+window.outerWidth+"x"+window.outerHeight+"<hr>";
+        texto+="El tamaño de la ventana sin toolbar "+window.innerWidth+"x"+window.innerHeight+"<hr>";
+        
+        texto+="Scroll horizontal:"+window.pageXOffset+"<br>";
+        texto+="Scroll vertical:"+window.pageYOffset+"<hr>";
+
+        texto+="Posición Horizontal:"+window.screenLeft+"<br>";
+        texto+="Posición Vertical:"+window.screenTop+"<hr>";
+
+        texto+="Posición Horizontal(scrollX):"+window.scrollX+"<br>";
+        texto+="Posición Vertical(scrollY):"+window.screenY+"<hr>";
+
+
+        var ventana=document.getElementById("ventana");
+        ventana.innerHTML=texto;
+    </script>
+</body>
+</html>
