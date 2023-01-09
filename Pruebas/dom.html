@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM</title>
+    </head>
+    <body>
+        <section id="s1">
+            <h1 class="titutlo">DOM</h1>
+            <p>Ejemplo de documento <strong>DOM</strong> en forma de arbol</p>
+        </section>
+        <script>
+            // Podemos selecionar con get o con query
+            let section1=document.getElementById('s1');
+            console.log(section1.getElementsByTagName('p')[0]);
+            let titulo=document.getElementsByClassName("titulo");
+            //selectores css
+            // La direfencia enetre SelectorAll  y s
+            let parafo=document.querySelectorAll("section>p");
+        </script>
+    </body>
+</html>
