@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Document Object Model</title>
+    <style>
+        .miClase {
+            color: red;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("sustituirPrimero").addEventListener("click", sustituirPrimero);
+        }
+
+        function crearParrafo() {
+            let texto=document.getElementById('texto').value;
+            if(texto!=""){
+                let parrafo=document.createElement("p");
+                parrafo.textContent=texto;
+                document.getElementById("div1").appendChild(parrafo);
+            }
+        }
+
+        function crearImagen() {
+            let ruta=prompt("Introduce la ruta");
+            while(ruta==""){
+                alert("No has introducido nada");
+                ruta=prompt("Introduce la ruta");
+            }
+            if(ruta!=null){
+                let textoAlternativo=prompt("Introduce el texto alternativo");
+                while(textoAlternativo==""){
+                    alert("No has introducido nada");
+                    textoAlternativo=prompt("Introduce el texto alternativo")
+                }
+                if(textoAlternativo!=null){
+                    let imgen=document.createElement("img");
+                    imgen.setAttribute("src",ruta);
+                    imgen.setAttribute("alt",textoAlternativo);
+                    document.getElementById("div1").appendChild(imgen);
+                }
+            }
+        }
+
+        function borrarUltimo() {
+            let parentNode=document.getElementById("div1");
+            if(parentNode.childNodes.length>0){
+                parentNode.lastChild.remove();
+            }
+        }
+
+        function borrarPrimero() {
+            let parentNode=document.getElementById("div1");
+            if(parentNode.childNodes.length>0){
+                parentNode.firstChild.remove();
+            }
+        }
+
+        function sustituirPrimero() {
+            let parentNode=document.getElementById("div1");
+            if(parentNode.childNodes.length>0){
+                let texto=document.getElementById('texto').value;
+                if(texto!=""){
+                    let parrafo=document.createElement("p");
+                    parrafo.textContent=texto;
+                    parentNode.replaceChild(parrafo,parentNode.firstChild);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <br/>
+    <textarea id="texto"></textarea>
+    <br/>
+    <button id="crearParrafo">Crear parrafo</button>
+    <button id="crearImagen">Crear imagen</button>
+    <button id="borrarUltimo">Borrar último elemento</button>
+    <button id="borrarPrimero">Borrar primer elemento</button>
+    <button id="sustituirPrimero">Sustituir primer párrafo</button>
+</body>
+
+</html>

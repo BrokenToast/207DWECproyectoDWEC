@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Document Object Model - Creación y modificación de elementos</title>
+        <meta charset="UTF-8">
+		<style>
+            .miClase{
+                color:red;
+            }
+        </style>
+
+        <script>
+            // async(Ejecuta el archivo al momento de que acaba de ser descargado) y defer(Ejecuta el script al final del archivo HTML)
+            window.addEventListener("load",inicio);
+            
+            function inicio(){
+                document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+                document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+                document.getElementById("quitarClases").addEventListener("click",quitarClases);
+            }
+            
+            function cambiarTextos(){
+                let listaParrafos=document.getElementById("main").children;
+                for (let index = 1; index <= 3; index++){
+                    let text=prompt(`Introduce el texto del parrafo ${index}`);
+                    listaParrafos[index-1].textContent=text;
+                }
+                
+            }
+            
+            function cambiarClases(){
+                let listaParrafos=document.getElementById("main").children;
+                let posi=parseInt(prompt("Introduce el parrafo al cual poner la clase 1-3"));
+                if(posi>0 && posi<4){
+                    listaParrafos[posi-1].toggleAttribute("class");
+                    if(listaParrafos[posi-1].attributes.length>1){
+                    listaParrafos[posi-1].attributes["class"].textContent="miClase";
+                   }
+                }
+            }
+            
+            function quitarClases(){
+                let listaParrafos=document.getElementById("main").children;
+                for (const element of listaParrafos) {
+                    element.removeAttribute("class");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <p id="parrafo1">Este es el primer párrafo</p>
+            <p id="parrafo2">Este es el segundo párrafo</p>
+            <p id="parrafo3" class="miClase">Este es el tercer párrafo</p>
+        </div>
+        <br/>
+        <button id="cambiarTextos">Cambiar texto de párrafos</button>
+        <button id="cambiarClases">Cambiar clases de párrafos</button>
+        <button id="quitarClases">Quitar clases de todos los párrafos</button>
+    </body>
+</html>

@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DOM</title>
+        
     </head>
     <body>
         <section id="s1">
@@ -12,13 +13,113 @@
             <p>Ejemplo de documento <strong>DOM</strong> en forma de arbol</p>
         </section>
         <script>
+            
+            //====================================================
+            // Seleccion de elementos del DOM.
             // Podemos selecionar con get o con query
             let section1=document.getElementById('s1');
             console.log(section1.getElementsByTagName('p')[0]);
             let titulo=document.getElementsByClassName("titulo");
             //selectores css
-            // La direfencia enetre SelectorAll  y s
-            let parafo=document.querySelectorAll("section>p");
+            // La direfencia enetre SelectorAll  y Selector 
+            let parafo=document.querySelectorAll("section>p")[0];
+
+            //====================================================
+            // Modificacion de atributos 
+            // setAttribute: es para crear en un elemento un atributo;
+            parafo.setAttribute("mensaje","holi");
+            console.log(parafo.getAttribute("mensaje"));
+
+            console.log(section1.getAttribute("id"));
+            
+            parafo.setAttribute("class","parrafos");
+            console.log(parafo.getAttribute("class"));
+            
+            parafo.toggleAttribute("autor")//Este metodo que si el atributo existe lo elimina y si no existe lo añade. Lo unico es que no añade valor de atributo.
+            console.log(parafo.hasAttribute("autor"));
+            
+            let listaAtributos= parafo.attributes;
+            for (const atributo of listaAtributos) {
+                console.log(atributo.nodeName+" | "+atributo.nodeValue);
+            }
+            //El recomendado para coger el valor de un elemento es con textContent
+            parafo.textContent="<strong>holiiiiiiiiiiii</strong>"; // Cambiar conteniedo de una un elemento no interpresa etiquetas HTML
+            parafo.innerHTML="<strong>adiosss</strong>"; // Cambiar conteniedo de una un elemento, interpreta las etiquetas HTML(Solo esta en manipulación de documentos HTML)
+            console.log(parafo.firstChild);
+            parafo.removeAttribute("class");
+            //====================================================
+            //modifcar CSS de elementos.
+
+            //parafo.style.color="red";
+            //parafo.style['color']="green";
+            console.log(window.getComputedStyle(parafo));
+
+            //modificando CSS con clases;
+            parafo.className="parafo autor";
+            console.log(parafo.className);//nombre de una clase.
+            //listas de clases
+            let listaClass=parafo.classList;
+            listaClass.add("otro");
+            for (const clase of listaClass) {
+                console.log(clase);
+            }
+            listaClass.remove("otro");
+            listaClass.toggle("seleccion");// Si la clase existe la elimina y si no la añade.
+            console.log(listaClass.contains("seleccion"));//Para ver si existe esa clase.
+            listaClass.replace("parafo","nuevo");// Remplazar una clase.
+            for (const clase of listaClass) {
+                console.log(clase);
+            }
+
+            //====================================================
+            //Navegar por el DOM
+            //P ara acceder a los nodos hijos lo hacemos con children(devuelve todos los elementos hijos(Solo tipo element) ) o con childNodes(Te devuelve todos los elementos hijos(Tipo element, text))
+            console.log(section1.childNodes.length);
+            console.log(section1.children);
+            //firstChild(Solo coge el primer hijo da igual de que tipo es(Element o text)) y firstElementchild(Solo coge el primir hijo que sea elemento)
+            console.log(section1.firstChild);
+            console.log(section1.firstElementChild);
+            //lastChild y lastElementChild, lo mismo que el first pero coge el ultimo. 
+            console.log(section1.lastChild);
+            console.log(section1.lastElementChild);
+            //nextSibling y nextElementSibling, es como first pero coge el siguiente hermano a partir del elemento del cual estamos posicionado
+            console.log(section1.nextSibling);
+            console.log(section1.nextElementSibling);
+            //previousSibling y previousElementSibling, es como los next pero cogiendo el hermano anterior.
+            console.log(section1.previousSibling);
+            console.log(section1.previousElementSibling);
+            //paretNode: Nodo padre.
+            console.log(section1.parentNode);
+            //Cuanta los elemetos hijos(Solo elementos de tipo Element)
+            console.log(section1.childElementCount);
+            
+            //====================================================
+            // Creacion de un elemento nodos
+            let nuevoParrafo=document.createElement("p");
+            nuevoParrafo.textContent="Nuevo parrado, creado a partir en javascript";
+            //Otra forma de añadir texto a un elemento, es creando un elemento text y añadirlo
+            let textElemento=document.createTextNode(" Texto añadido a partir de un nodo text");
+            nuevoParrafo.appendChild(textElemento);
+            //appendChild es para añadir un hijo a un elemento.
+            section1.appendChild(nuevoParrafo);
+            //insertBefore: inserta el nuevo elemento antes del elemento pasado por parametro.
+            section1.insertBefore(nuevoParrafo,section1.children[0]);
+            //remplaceChild: es para remplazar nodos hijos. devuelve una el nodo que a sido sustituido.
+            console.log(section1.replaceChild(nuevoParrafo,section1.children[2]));
+            //removeChild: elemina el elemento que la pasamos por parametro. Devuelve el elemto eliminado
+            console.log(section1.removeChild(section1.children[1]));
+
+            //====================================================
+            // Coleciones vivas
+            // Significa que cuando a un elemento se añade un elemento nuevo las listas de elementos hijos se actualizan.
+            // metodo que no devuelve coleciones vivas:
+            // querySelectorAll
+            let listaHijosSection=section1.children;
+            let elementoAñadir=document.createElement("strong");
+            elementoAñadir.textContent="Holiiiii";
+            console.log(listaHijosSection.length);
+            section1.appendChild(elementoAñadir);
+            console.log(listaHijosSection.length);
         </script>
     </body>
 </html>
