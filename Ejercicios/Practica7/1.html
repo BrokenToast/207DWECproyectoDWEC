@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fuga expedita quod id itaque mollitia, ut obcaecati pariatur labore soluta. Repellat nihil aliquam provident tempora reprehenderit alias doloremque ducimus modi!</li>
+        <li>Id ex alias accusantium veritatis laborum quos, excepturi vitae? Repellat quos animi minus qui fugiat odio eaque quisquam, quam ipsa error numquam est eius atque velit! Deserunt enim repudiandae blanditiis!</li>
+        <li>Porro, facilis quidem reiciendis placeat alias quia aspernatur accusantium numquam, ducimus qui modi. Asperiores debitis odit facilis nulla aliquid reiciendis sapiente iure sequi omnis, velit, dolorum repellendus minus excepturi saepe.</li>
+        <li>Dolorem veniam officiis praesentium, sint ut illum quidem! Mollitia, voluptatum pariatur? Velit temporibus cupiditate excepturi quo praesentium labore itaque perferendis maiores deserunt voluptates tempora, earum, commodi eum quos repudiandae aliquam?</li>
+        <li>Repudiandae porro, quia dolore eligendi perferendis sapiente, minus iusto neque fugit fugiat in est, id unde. Hic eligendi sint unde, voluptatibus saepe soluta dicta, pariatur eum facilis iure amet perspiciatis.</li>
+        <li>Architecto quibusdam accusantium, quo aut, excepturi voluptatem modi illum quis ea exercitationem reprehenderit id neque ratione, ipsum harum obcaecati autem suscipit alias deserunt. Labore velit beatae doloremque! Itaque, tenetur hic!</li>
+        <li>Fuga nesciunt exercitationem rem repellendus quam libero temporibus cupiditate voluptatibus in incidunt ipsum facilis quia unde, minus illum eum sunt culpa reiciendis! Fugiat, tempore! Laboriosam ducimus natus aspernatur temporibus vitae!</li>
+        <li>Deserunt quaerat sed, culpa, alias delectus soluta quia voluptatum blanditiis corrupti eaque, architecto necessitatibus ea? Commodi est, veritatis cupiditate magnam soluta quisquam sed aut delectus dignissimos reprehenderit tenetur. Natus, sequi.</li>
+        <li>Ipsum aspernatur minima, labore itaque sapiente nemo dolores cumque. Sunt distinctio facilis, reiciendis dolore rerum tenetur illum fuga sint praesentium ratione voluptatum asperiores esse facere, delectus, qui nam cumque ducimus!</li>
+    </ol>
+</body>
+<script>
+    var texto=prompt("Instroduce el texto del parrafo");
+    var posicion=parseInt(prompt("Introdece la posicion del parrado 1-10"));
+    while(posicion==null && (isNaN(posicion) || posicion>10 || posicion<1)){
+        alert("Error al introducir la posición");
+        posicion=parseInt(prompt("Introdece la posicion del parrado 1-10"));
+    }
+    if(texto!=null && posicion!=null){
+        var padre=document.getElementsByTagName("ol")[0];
+        var newItemList=document.createElement("li");
+        newItemList.textContent=texto;
+        padre.insertBefore(newItemList,padre.children[posicion-1]);
+    }
+</script>
+</html>

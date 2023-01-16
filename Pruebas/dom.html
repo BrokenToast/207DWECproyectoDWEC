@@ -15,6 +15,7 @@
         <script>
             
             //====================================================
+            //https://www.neoguias.com/scripts-async-defer/
             // Seleccion de elementos del DOM.
             // Podemos selecionar con get o con query
             let section1=document.getElementById('s1');
@@ -57,7 +58,7 @@
             //modificando CSS con clases;
             parafo.className="parafo autor";
             console.log(parafo.className);//nombre de una clase.
-            //listas de clases
+            //listas de clases, esta es la mejor forma de trabajar con class
             let listaClass=parafo.classList;
             listaClass.add("otro");
             for (const clase of listaClass) {

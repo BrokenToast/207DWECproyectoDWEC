@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //===================== Temporizador
+        //Es para crear un temporizador, solo se ejecuta una vez, no es cada 5 segundos.
+        //setTimeOut devuelve un nuermo que sera el ide del temporizador
+        var idTemp=setTimeout(function(n) {
+            alert(n)
+        },5000,20);
+        //Es para parar un temporizador, le tenemos que pasar el id del temporizador.
+        clearTimeout(idTemp);
+
+        //===================== Interval
+        // Es para crear un temporizador que se va a ejecutar el codigo de la funcion.
+        // devuelve la id del temporizaor
+        var idInterval=setInterval(() => {
+            alert("hola");
+        }, 6000);
+        //Es para parar el intervalo, le tenemos que pasar el id del intervalo.
+        clearInterval(idInterval);
+    </script>
+</body>
+</html>
