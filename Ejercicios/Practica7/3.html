@@ -13,8 +13,6 @@
     <p class="subtitulo">
         Que trata de la condición y ejercicio del famoso hidalgo don Quijote de la Mancha
     </p>
-    
-    
     <p>
         En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lantejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda. El resto della concluían sayo de velarte, calzas de velludo para las fiestas, con sus pantuflos de lo mesmo, y los días de entresemana se honraba con su vellorí de lo más fino. Tenía en su casa una ama que pasaba de los cuarenta, y una sobrina que no llegaba a los veinte, y un mozo de campo y plaza, que así ensillaba el rocín como tomaba la podadera. Frisaba la edad de nuestro hidalgo con los cincuenta años; era de complexión recia, seco de carnes, enjuto de rostro, gran madrugador y amigo de la caza. Quieren decir que tenía el sobrenombre de Quijada, o Quesada, que en esto hay alguna diferencia en los autores que deste caso escriben; aunque por conjeturas verosímiles se deja entender que se llamaba Quijana. Pero esto importa poco a nuestro cuento: basta que en la narración dél no se salga un punto de la verdad.
     </p>
@@ -53,8 +51,6 @@
     <p class="subtitulo">
         Que trata de la primera salida que de su tierra hizo el ingenioso don Quijote
     </p>
-    
-    
     <p>
         Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner en efeto su pensamiento, apretándole a ello la falta que él pensaba que hacía en el mundo su tardanza, según eran los agravios que pensaba deshacer, tuertos que enderezar, sinrazones que enmendar, y abusos que mejorar, y deudas que satisfacer. Y así, sin dar parte a persona alguna de su intención, y sin que nadie le viese, una mañana, antes del día, que era uno de los calurosos del mes de julio, se armó de todas sus armas, subió sobre Rocinante, puesta su mal compuesta celada, embrazó su adarga, tomó su lanza, y, por la puerta falsa de un corral, salió al campo con grandísimo contento y alborozo de ver con cuánta facilidad había dado principio a su buen deseo. Mas, apenas se vio en el campo, cuando le asaltó un pensamiento terrible, y tal, que por poco le hiciera dejar la comenzada empresa; y fue que le vino a la memoria que no era armado caballero, y que, conforme a ley de caballería, ni podía ni debía tomar armas con ningún caballero; y, puesto que lo fuera, había de llevar armas blancas, como novel caballero, sin empresa en el escudo, hasta que por su esfuerzo la ganase. Estos pensamientos le hicieron titubear en su propósito; mas, pudiendo más su locura que otra razón alguna, propuso de hacerse armar caballero del primero que topase, a imitación de otros muchos que así lo hicieron, según él había leído en los libros que tal le tenían. En lo de las armas blancas, pensaba limpiarlas de manera, en teniendo lugar, que lo fuesen más que un armiño; y con esto se quietó y prosiguió su camino, sin llevar otro que aquél que su caballo quería, creyendo que en aquello consistía la fuerza de las aventuras.
     </p>
@@ -153,28 +149,19 @@
         Pusiéronle la mesa a la puerta de la venta, por el fresco, y trújole el huésped una porción del mal remojado y peor cocido bacallao y un pan tan negro y mugriento como sus armas; pero era materia de grande risa verle comer, porque, como tenía puesta la celada y alzada la visera, no podía poner nada en la boca con sus manos si otro no se lo daba y ponía, y ansí, una de aquellas señoras servía deste menester. Mas al darle de beber, no fue posible, ni lo fuera si el ventero no horadara una caña, y puesto el un cabo en la boca, por el otro le iba echando el vino; y todo esto lo recebía en paciencia, a trueco de no romper las cintas de la celada. Estando en esto, llegó acaso a la venta un castrador de puercos; y, así como llegó, sonó su silbato de cañas cuatro o cinco veces, con lo cual acabó de confirmar don Quijote que estaba en algún famoso castillo, y que le servían con música, y que el abadejo eran truchas; el pan candeal, y las rameras, damas, y el ventero castellano del castillo, y con esto daba por bien empleada su determinación y salida. Mas lo que más le fatigaba era el no verse armado caballero, por parecerle que no se podría poner legítimamente en aventura alguna sin recebir la orden de caballería.    
     </p>
     <script>
-        class recorrerElementoPintar{
-            posicion=0;
-            elementList;
-            constructor(elementList){
-                this.posicion=elementList.length;
-                this.elementList=elementList;
-            }
-            recorrerDOM(palabra) {
-                var element=this.elementList[posicion];
-                var experiencia=`/${palabra}/`;
-                if(experiencia.experiencia.test(element.textContent)){
-                    this.#pintar(element);
+        function recorrreDOM(palabra,element) {
+            let experesion=new RegExp(`${palabra}`,"gm");
+            let hijos=element.children;
+            if(hijos.length>0){
+                for (const elemento of hijos) {
+                    recorrreDOM(palabra,elemento);
                 }
-                this.posicion-=1;
-                if(this.posicion>=0){
-                    this.recorrerDOM(palabra);
-                }
-            }
-            #pintar(elementoDom){
-                
+                element.innerHTML=element.innerHTML.replace(experesion,`<strong>${palabra}</strong>`);
+            }else{
+                element.innerHTML=element.innerHTML.replace(experesion,`<strong>${palabra}</strong>`);
             }
         }
+        recorrreDOM(prompt("Introduce la palabra a buscar"),document.body);
     </script>
 </body>
 </html>

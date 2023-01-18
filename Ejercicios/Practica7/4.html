@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>hola</li>
+        <li>informatica</li>
+        <li>ordenador</li>
+        <li>maiz</li>
+        <li>manzana</li>
+        <li>camara</li>
+        <li>raton</li>
+        <li>perro</li>
+        <li>taco</li>
+        <li>bocata</li>
+    </ul>
+    <script>
+        setTimeout(function(){
+            var aLista=[];
+            for (const element of document.getElementsByTagName("li")) {
+                aLista.push(element);
+            }
+            if(confirm("¿Quieres ordenar al lista?")){
+                aLista.sort(function(a,b){
+                    if(a.textContent>b.textContent){
+                        return 1;
+                    }else if(a.textContent<b.textContent){
+                        return -1;
+                    }else{
+                        return 0;
+                    }
+                })
+                var body=document.getElementsByTagName("body")[0];
+                document.getElementsByTagName("ul")[0].remove();
+                var lista=document.createElement("ul");
+                var posicion=0;
+                body.appendChild(lista);
+                var idIterator=setInterval(function(){
+                    lista.appendChild(aLista[posicion]);
+                    ++posicion;
+                    if(posicion==10){
+                        clearInterval(idIterator);
+                    }
+                },1000);
+            }
+        },3000);
+
+    </script>
+</body>
+</html>
