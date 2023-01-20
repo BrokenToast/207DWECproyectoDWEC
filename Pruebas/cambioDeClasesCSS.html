@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            box-sizing: content-box;
+            font-family: sans-serif;
+        }
+        button{
+            position: absolute;
+            right: 0;
+        }
+        button:nth-of-type(2){
+            right: 6%;
+        }
+        #cuadrado{
+            width: 100px;height: 100px;
+            display: block;
+            transition: all 1s;
+            background-color: aqua;
+        }
+        .arriba{
+            transform: translate( 50%,50%);
+        }
+        .abajo{
+            transform: translate( 0px,0px);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="arriba()">mover</button>
+    <div class="arriba" id="cuadrado"></div>
+    <script>
+        function arriba() {
+            document.getElementsByTagName("div")[0].classList.toggle("arriba");
+            document.getElementsByTagName("div")[0].classList.toggle("abajo");
+        }
+    </script>
+</body>
+</html>
