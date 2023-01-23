@@ -6,54 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
-            width: 60%;
-            margin: 0 auto;
-            border-radius:200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: gray;
-        }
-        p{
-            font-weight: bold;
-            font-size: 4em;
-        }
-        img{
-            width: 10%;
-        }
     </style>
 </head>
 <body>
-    <div>
-        <img src="" alt="">
-        <img src="" alt="">
-        <p>:</p>
-        <img src="" alt="">
-        <img src="" alt="">
-        <p>:</p>
-        <img src="" alt="">
-        <img src="" alt="">
+    <div id="reloj">
+    <img src="./numeros/clock.png" alt="">
+      <div id="numeros">
+          <img src="" alt="">
+          <img src="" alt="">
+          <img src="./numeros/dosPuntos.png" alt="">
+          <img src="" alt="">
+          <img src="" alt="">
+          <img src="./numeros/dosPuntos.png" alt="">
+          <img src="" alt="">
+          <img src="" alt="">
+      </div>
     </div>
     <script>
         var numeros=[
-            "./numeros/0.gif",
-            "./numeros/1.gif",
-            "./numeros/2.gif",
-            "./numeros/3.gif",
-            "./numeros/4.gif",
-            "./numeros/5.gif",
-            "./numeros/6.gif",
-            "./numeros/7.gif",
-            "./numeros/8.gif",
-            "./numeros/9.gif"
+            "./numeros/0.png",
+            "./numeros/1.png",
+            "./numeros/2.png",
+            "./numeros/3.png",
+            "./numeros/4.png",
+            "./numeros/5.png",
+            "./numeros/6.png",
+            "./numeros/7.png",
+            "./numeros/8.png",
+            "./numeros/9.png"
         ]
-        var primerDijito=document.getElementsByTagName("img")[0].attributes[0];
-        var segundoDijito=document.getElementsByTagName("img")[1].attributes[0];
-        var terceroDijito=document.getElementsByTagName("img")[2].attributes[0];
-        var cuartaDijito=document.getElementsByTagName("img")[3].attributes[0];
-        var quintoDijito=document.getElementsByTagName("img")[4].attributes[0];
-        var sextoDijito=document.getElementsByTagName("img")[5].attributes[0];
+        var primerDijito=document.getElementsByTagName("img")[1].attributes[0];
+        var segundoDijito=document.getElementsByTagName("img")[2].attributes[0];
+        var terceroDijito=document.getElementsByTagName("img")[4].attributes[0];
+        var cuartaDijito=document.getElementsByTagName("img")[5].attributes[0];
+        var quintoDijito=document.getElementsByTagName("img")[7].attributes[0];
+        var sextoDijito=document.getElementsByTagName("img")[8].attributes[0];
 
         function tiempo() {
             var hora=new Date();
