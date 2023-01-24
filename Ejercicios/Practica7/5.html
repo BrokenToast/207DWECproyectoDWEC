@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-      body{
-        width: 100vw;
-        height: 100vh;
+      *{
+        margin: 0;padding: 0;
+        box-sizing: content-box;
       }
       #reloj{
         width: 50%;
@@ -29,57 +29,6 @@
     </style>
 </head>
 <body>
-    <div id="reloj">
-    <img src="./numeros/clock.png" alt="">
-      <div id="numeros">
-          <img src="" alt="">
-          <img src="" alt="">
-          <img src="./numeros/dosPuntos.png" alt="">
-          <img src="" alt="">
-          <img src="" alt="">
-          <img src="./numeros/dosPuntos.png" alt="">
-          <img src="" alt="">
-          <img src="" alt="">
-      </div>
-    </div>
-    <script>
-        var numeros=[
-            "./numeros/0.png",
-            "./numeros/1.png",
-            "./numeros/2.png",
-            "./numeros/3.png",
-            "./numeros/4.png",
-            "./numeros/5.png",
-            "./numeros/6.png",
-            "./numeros/7.png",
-            "./numeros/8.png",
-            "./numeros/9.png"
-        ]
-        var primerDijito=document.getElementsByTagName("img")[1].attributes[0];
-        var segundoDijito=document.getElementsByTagName("img")[2].attributes[0];
-        var terceroDijito=document.getElementsByTagName("img")[4].attributes[0];
-        var cuartaDijito=document.getElementsByTagName("img")[5].attributes[0];
-        var quintoDijito=document.getElementsByTagName("img")[7].attributes[0];
-        var sextoDijito=document.getElementsByTagName("img")[8].attributes[0];
-
-        function tiempo() {
-            var hora=new Date();
-            let primero=parseInt(hora.getHours()/10);
-            let segundo=hora.getHours()%10;
-            let tercero=parseInt(hora.getMinutes()/10);
-            let cuarto=hora.getMinutes()%10;
-            let quinto=parseInt(hora.getSeconds()/10);
-            let sexto=hora.getSeconds()%10
-            primerDijito.textContent=numeros[primero];
-            segundoDijito.textContent=numeros[segundo];
-            terceroDijito.textContent=numeros[tercero];
-            cuartaDijito.textContent=numeros[cuarto];
-            quintoDijito.textContent=numeros[quinto];
-            sextoDijito.textContent=numeros[sexto];
-
-        }
-        tiempo();
-        setInterval(tiempo,1000);
-    </script>
+    <script defer src="reloj.js"></script>
 </body>
 </html>
