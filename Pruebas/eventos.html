@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw; height: 100vh;
+        }
+        div{
+            width: 600px; height: 400px;
+            margin: auto;
+            padding: 5%;
+            background: gray;
+        }
+        div>p{
+            width: 400px;height: 200px;
+            padding: 20%;
+            background-color: azure;
+        }
+        #cursor{
+            width: 100px; height: 100px;
+            text-align: center;
+            background-color: greenyellow;
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            <button> Hazme Click </button>
+        </p>
+    </div>
+</body>
+<script>
+    function mensaje(e) {
+        alert("click en el boton")
+    }
+    let capa=document.querySelector("div");
+    let parafo=document.querySelector("p");
+    let boton=document.querySelector("button");
+    /*Primera forma de añadir un elementi*/
+    //boton.onclick= ()=>alert("hola");
+    /*Segunda forma*/
+    boton.addEventListener("click",mensaje);//Añadir Evento
+    boton.removeEventListener("click",mensaje);//Eliminar evento
+    parafo.addEventListener("click",()=>alert("click en el parrafo"),false); // le cercer atributo es si siguen el metodo de propagacion de pompa(Tienen que se todos false para desactivalo)
+    capa.addEventListener("click",()=>alert("click en el div"),false);
+    /*Objeto events*/
+    function mensajeEvent(oEvent) {
+        alert(oEvent);// Es un objeto que puede ser pasado a la funcuio;
+        alert(oEvent.target);// Es una propiedad que nos devuelve el elemento que a producicido el evento;
+        oEvent.target.style.backgroundColor="red";
+        //Podemos ver las cordenadas del evento(Coje las cordenadar del raton respecto al border superior izquierdo de la ventana del navegador)
+        alert(`Ventana: X=${oEvent.clientX} | Y=${oEvent.clientY}`);
+        // Es como el anterior pero respecto a la pantalla
+        alert(`Pantalla: X=${oEvent.screenX} | Y=${oEvent.screenY}`);
+        // Es como el anterior pero respecto a la pagina(Es util cuanto tenemos escroll)
+        alert(`Pagina: X=${oEvent.pageX} | Y=${oEvent.pageY}`);
+    }
+    boton.addEventListener("click",mensajeEvent);//Añadir Evento
+
+    //teclado 
+    document.body.addEventListener("keyup",tecla);
+    function tecla(params) {
+        alert(params.key);
+    }
+
+    // Seguimiento del raton
+    var mmm=document.createElement("p");
+    mmm.setAttribute("id","cursor");
+    document.body.addEventListener("mousemove",aaaa);
+    function aaaa(par) {
+        mmm.textContent=par.pageX+" "+ par.pageY;
+        document.body.appendChild(mmm)
+    }
+    // Los eventos de teclado tiene una propiedad que nos dice que tacla a pulsado;
+</script>
+</html>
