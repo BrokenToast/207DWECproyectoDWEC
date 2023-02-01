@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            box-sizing: content-box;
+            font-family: sans-serif;
+        }
+        #root{
+            height: 100vh; width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cubo{
+            width: 50%; height: 50%;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div id="cubo"></div>
+</div>
+<script>
+    var cubo=document.getElementById("cubo");
+    function aproximacion(){
+        cubo.style.backgroundColor="green";
+    }
+    function clickDown(evento) {
+        if(evento.button==0){
+            cubo.style.backgroundColor="red";
+        }
+        if(evento.button==2){
+            cubo.style.backgroundColor="blue";
+        }
+    }
+    function clickUp(evento) {
+            cubo.style.backgroundColor="white";
+    }
+    function deleteContexMenu(evento) {
+        evento.preventDefault();
+    }
+    cubo.addEventListener("mouseenter",aproximacion);
+    cubo.addEventListener("mousedown",clickDown);
+    cubo.addEventListener("mouseup",clickUp);
+    cubo.addEventListener("contextmenu",deleteContexMenu);
+</script>
+</body>
+</html>

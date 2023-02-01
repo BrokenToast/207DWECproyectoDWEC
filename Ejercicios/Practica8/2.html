@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            width: 100vw; height: 100vh;
+            background-color: black;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-repeat: no-repeat;
+        }
+        p{
+            width: 100vw; height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <p> Presiona Alt+F12</p>
+    <script>
+        function randomImagen(eventos) {
+            if(eventos.altKey && eventos.key=="F12"){
+                document.body.style.backgroundImage="url(https://source.unsplash.com/random)";
+                document.getElementsByTagName("p")[0].style.display="none";
+            }
+        }
+        document.body.addEventListener("keyup",randomImagen);
+    </script>
+</body>
+</html>
