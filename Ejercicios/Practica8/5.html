@@ -22,7 +22,7 @@
         }
         .ver{
             width: 100%;
-            padding: 5%;
+            padding: 2%;
             display: flex;
             justify-content: center;
             position: absolute;
@@ -31,6 +31,15 @@
         }
         .nover{
             display: none;
+        }
+        button{
+            padding: 4% 10%;
+            font-size: 2em;
+            border:none;
+            background: white;
+        }
+        button:hover{
+            background-color: gainsboro;
         }
     </style>
 </head>
@@ -46,19 +55,24 @@
     </div>
     <script>
         var caja=document.getElementById("caja");
-        var maxScroll=caja.scrollHeight-caja.style.height;
-        var clasesCaja=document.getElementsByTagName("footer")[0].classList;
+        var maxScroll=caja.scrollHeight-500;
+        var footerCajaClass=document.getElementsByTagName("footer")[0].classList;
         function viewFooter(){
-            console.log(caja.scrollTop);
-            console.log(maxScrolla);
             if(maxScroll==caja.scrollTop){
-                clasesCaja.remove(0);
-                clasesCaja.add('ver');
-                console.log(clasesCaja);
-            }
-            
+                footerCajaClass.remove("nover");
+                footerCajaClass.add("ver")
+            } 
+            if(maxScroll>caja.scrollTop){
+                footerCajaClass.remove("ver");
+                footerCajaClass.add("nover")
+            } 
+        }
+        function cerrarCaja(){
+            caja.classList.add("nover")
+            console.log(clasesCaja);
         }
         caja.addEventListener('scroll',viewFooter);
+        document.getElementsByTagName("button")[0].addEventListener("click",cerrarCaja);
     </script>
 </body>
 </html>

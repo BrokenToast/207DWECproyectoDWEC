@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            box-sizing: content-box;
+            font-family: sans-serif;
+        }
+        #root{
+            width: 100vw; height: 100vh;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .descripcion{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+            <label for="tipoIncidente">Tipo de incidencia</label>
+            <select name="tipoIncidente" id="tipoIncidente">
+                <option value="">Distribución</option>
+            </select>
+            <label for="numeroSerie">Numero de serie</label>
+            <input type="text" name="numeroSerie" id="numeroSerie">
+            <button id="viewdetail">Mostrar Descripcion</button>
+            <label class="descripcion" for="descripcion">Descripción:</label>
+            <textarea class="descripcion" name="descripcion" id="descripcion" cols="30" rows="10">
+            </textarea>
+            <button id="enviar">Enviar datos</button>
+    </div>
+    <script>
+        //Boton de descripcion
+        function viewDescription(event) {
+            document.getElementById("viewdetail").style.display="none";
+            document.querySelector("label[for='descripcion']").classList.remove("descripcion");
+            document.getElementById("descripcion").classList.remove("descripcion");
+        }
+        document.getElementById("viewdetail").addEventListener("click",viewDescription);
+        //Boton enviar
+        function enviar(event) {
+            $aptron=\\
+            document.getElementById("numeroSerie").getAttribute("value");
+        }
+    </script>
+</body>
+</html>
