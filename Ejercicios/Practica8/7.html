@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*Clases*/
+        .descripcion{
+            display: none;
+        }
+        .error{
+            border: 2px solid red;
+            color: red;
+        }
+        .correcto{
+            color: green;
+        }
+        /*Glabales*/
         *{
             padding: 0; margin: 0;
             box-sizing: content-box;
@@ -13,29 +25,62 @@
         }
         #root{
             width: 100vw; height: 100vh;
+            display: grid;
+            grid-template-columns: 3fr 7fr;
+            grid-template-rows: 1fr 9fr;
+        }
+        p{
+            display: none;
+        }
+        /*Encabezado*/
+        h1{
+            height: 100%; width: 100%;
+            grid-column:1/3;
+            grid-row: 1/2;
+            text-align: center;
+            color: white;
+            background: orange;
+        }
+        /*Formulario*/
+        #root>div{
+            width: 30%;
+            padding: 2%;
+            grid-column:2/3;
+            grid-row: 2/3;
             display: flex;
             flex-flow: column;
-            align-items: center;
-            justify-content: center;
+            align-self: center
         }
-        .descripcion{
-            display: none;
+        #root>div>*{
+            margin: 1% 0;
+        }
+        /*Imagen*/
+        img{
+            grid-column:1/2;
+            grid-row: 2/3;
+            align-self: center;
+            justify-self: center;
         }
     </style>
 </head>
 <body>
     <div id="root">
+        <h1>INFORME INCIDENCIA</h1>
+        <div>
             <label for="tipoIncidente">Tipo de incidencia</label>
             <select name="tipoIncidente" id="tipoIncidente">
                 <option value="">Distribución</option>
             </select>
             <label for="numeroSerie">Numero de serie</label>
             <input type="text" name="numeroSerie" id="numeroSerie">
+            <p class="error">Numero de serie Erroneo</p>
             <button id="viewdetail">Mostrar Descripcion</button>
             <label class="descripcion" for="descripcion">Descripción:</label>
             <textarea class="descripcion" name="descripcion" id="descripcion" cols="30" rows="10">
             </textarea>
             <button id="enviar">Enviar datos</button>
+        </div>
+        <img src="https://cdn.pixabay.com/photo/2016/11/21/13/20/port-1845350_960_720.jpg" alt="" width="400">
     </div>
     <script>
         //Boton de descripcion
@@ -47,9 +92,22 @@
         document.getElementById("viewdetail").addEventListener("click",viewDescription);
         //Boton enviar
         function enviar(event) {
-            $aptron=\\
-            document.getElementById("numeroSerie").getAttribute("value");
+            let aptron=/^[\d]{3}[A-ZÑ]{4}[12A]$/;
+            let numeroSerie=document.getElementById("numeroSerie")
+            if(!aptron.test(numeroSerie.value)){
+                document.getElementsByTagName('p')[0].style.display="inline"
+                numeroSerie.classList.add("error");
+            }else{
+                document.getElementsByTagName('p')[0].style.display="none"
+                document.getElementById("viewdetail").style.display="block";
+                document.querySelector("label[for='descripcion']").classList.add("descripcion");
+                document.getElementById("descripcion").classList.add("descripcion");
+                numeroSerie.value="";
+                alert("Incidencia Enviada. Gracias")
+                numeroSerie.classList.remove("error");
+            }
         }
+        document.getElementById("enviar").addEventListener("click",enviar);
     </script>
 </body>
 </html>

@@ -55,7 +55,7 @@
     </div>
     <script>
         var caja=document.getElementById("caja");
-        var maxScroll=caja.scrollHeight-500;
+        var maxScroll=caja.scrollHeight-caja.clientHeight;
         var footerCajaClass=document.getElementsByTagName("footer")[0].classList;
         function viewFooter(){
             if(maxScroll==caja.scrollTop){

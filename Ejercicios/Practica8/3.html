@@ -47,8 +47,9 @@
         evento.preventDefault();
     }
     cubo.addEventListener("mouseenter",aproximacion);
+    cubo.addEventListener("mouseleave",clickUp);
     cubo.addEventListener("mousedown",clickDown);
-    cubo.addEventListener("mouseup",clickUp);
+    cubo.addEventListener("mouseup",aproximacion);
     cubo.addEventListener("contextmenu",deleteContexMenu);
 </script>
 </body>

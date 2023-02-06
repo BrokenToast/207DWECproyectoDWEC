@@ -55,7 +55,17 @@
             event.preventDefault();
             caja1.classList.add("encima");
             caja1.textContent="!Lo has logrado!";
+            caja1.style.opacity=1;
         }
+        function start() {
+            caja1.style.opacity=.5;
+        }
+        function end() {
+            caja1.style.opacity=1;
+        }
+        caja1.addEventListener("dragstart",start);
+        caja1.addEventListener("dragend",end);
+
         caja2.addEventListener("dragover",deleteDefutalOver);
         caja2.addEventListener("dragover",deleteDefutalOver);
 
