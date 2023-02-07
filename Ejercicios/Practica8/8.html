@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 8</title>
+    <style>
+        *{
+            padding: 0; margin: 0;
+            box-sizing: content-box;
+            font-family: sans-serif;
+        }
+        #root{
+            height: 100vh; width: 100vw;
+            display: grid;
+            grid-template-columns: 2fr 3fr 3fr ;
+            grid-template-rows: 0.5fr 0.5fr 9fr;
+        }
+        /*Titulos*/
+        h1{
+            grid-row: 1/2;
+            grid-column: 1/4;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        h2{
+            width: 100%;height: 100%;
+            background-color: #808080;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+        }
+        h2:nth-of-type(1){
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+        h2:nth-of-type(2){
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        h2:nth-of-type(3){
+            grid-row: 2/3;
+            grid-column: 3/4;
+        }
+        /*formulario*/
+        form{
+            grid-row: 3/4;
+            grid-column: 1/2;
+        }
+        form>*{
+            display: block;
+        }
+        form>label,input[type="checkbox"]{
+            display: inline-block;
+        }
+        /*Secion*/
+        section{
+            grid-row: 3/4;
+            grid-column: 2/4;
+            padding: 1%;
+            display: grid;
+            grid-template-rows: repeat(7,1.42fr);
+            grid-template-columns: 5fr 5fr;
+            gap:2%;
+            background: #906b6b;
+        }
+        /*OSI*/
+        section>p:nth-of-type(1){
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+        section>p:nth-of-type(2){
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+        section>p:nth-of-type(3){
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+        section>p:nth-of-type(4){
+            grid-column: 1/2;
+            grid-row: 4/5;
+        }
+        section>p:nth-of-type(5){
+            grid-column: 1/2;
+            grid-row: 5/6;
+        }
+        section>p:nth-of-type(6){
+            grid-column: 1/2;
+            grid-row:6/7;
+        }
+        section>p:nth-of-type(7){
+            grid-column: 1/2;
+            grid-row: 7/8;
+        }
+        /*TCP/IP*/
+        section>p:nth-of-type(8){
+            grid-column: 2/3;
+            grid-row: 1/4;
+        }
+        section>p:nth-of-type(9){
+            grid-column: 2/3;
+            grid-row: 4/5;
+        }
+        section>p:nth-of-type(10){
+            grid-column: 2/3;
+            grid-row: 5/6;
+        }
+        section>p:nth-of-type(11){
+            grid-column: 2/3;
+            grid-row: 6/8;
+        }
+        section>p{
+            height: 100%;
+            border: 2px solid black;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight:bold;
+            
+        }
+        .aplicacion{
+            background-color: #41af7e;
+        }
+        .transporte{
+            background-color: #3688af;
+        }
+        .red{
+            background-color: #af7333;
+        }
+        .interfaz{
+            background-color: #af30a9;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>Niveles OSI y TCP/IP</h1>
+        <h2></h2><h2>Modelo OSI</h2><h2>Modelo TCP/IP</h2>
+        <form method="post">
+            <input type="checkbox" name="osi" value="osi" id="osi">
+            <label for="osi">OSI</label><br>
+            <input type="checkbox" name="tcp/ip" value="tcp/ip" id="tcp/ip">
+            <label for="tcp/ip">TCP/IP</label>
+            <input type="button" name="ocultardos" value="Ocultar ambas">
+            <input type="button" name="ocultartodo" value="Ocultar todo">
+        </form>
+        <section>
+                <p class="aplicacion">Aplicación</p>
+                <p class="aplicacion">Presentación</p>
+                <p class="aplicacion">Sesión</p>
+                <p class="transporte">Transporte</p>
+                <p class="red">Red</p>
+                <p class="interfaz">Enlace a datos</p>
+                <p class="interfaz">Fisica</p>
+                <p class="aplicacion">Aplicación</p>
+                <p class="transporte">Transporte</p>
+                <p class="red">Internet</p>
+                <p class="interfaz">Interfaz de red</p>
+        </section>
+    </div>
+    <script>
+        var elementForm=document.forms[0].elements;
+        //checkbox
+        function mostrar() {
+            if(elementForm.checkbox.value=="tcp/ip"){
+                for (let index = 1; index < 8; index++) {
+                    setTimeout().
+                }
+            }
+            if(elementForm.checkbox.value=="osi"){
+                for (let index = 8; index < 12; index++) {
+                    
+                }
+            }
+        }
+        elementForm.checkbox.addEventListener("checked",mostrar);
+
+    </script>
+</body>
+</html>

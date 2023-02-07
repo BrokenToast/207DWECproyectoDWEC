@@ -42,7 +42,7 @@
             background: orange;
         }
         /*Formulario*/
-        #root>div{
+        #root>form{
             width: 30%;
             padding: 2%;
             grid-column:2/3;
@@ -51,7 +51,7 @@
             flex-flow: column;
             align-self: center
         }
-        #root>div>*{
+        #root>form>*{
             margin: 1% 0;
         }
         /*Imagen*/
@@ -66,10 +66,12 @@
 <body>
     <div id="root">
         <h1>INFORME INCIDENCIA</h1>
-        <div>
+        <form>
             <label for="tipoIncidente">Tipo de incidencia</label>
             <select name="tipoIncidente" id="tipoIncidente">
-                <option value="">Distribución</option>
+                <option value="distribucion" selected >Distribución</option>
+                <option value="oficina">Oficina</option>
+                <option value="producion">Produción</option>
             </select>
             <label for="numeroSerie">Numero de serie</label>
             <input type="text" name="numeroSerie" id="numeroSerie">
@@ -78,11 +80,30 @@
             <label class="descripcion" for="descripcion">Descripción:</label>
             <textarea class="descripcion" name="descripcion" id="descripcion" cols="30" rows="10">
             </textarea>
-            <button id="enviar">Enviar datos</button>
-        </div>
-        <img src="https://cdn.pixabay.com/photo/2016/11/21/13/20/port-1845350_960_720.jpg" alt="" width="400">
+            <input type="button" id="enviar" value="Enviar datos">
+        </form>
+        <img width="400">
     </div>
     <script>
+        var formulario=document.forms[0];
+        //Cambiar Imagen
+        var selector=formulario.elements.namedItem("tipoIncidente");
+        function changeImg() {
+            switch (selector.value) {
+                case "distribucion":
+                    document.getElementsByTagName("img")[0].setAttribute("src","https://cdn.pixabay.com/photo/2016/11/21/13/20/port-1845350_960_720.jpg");
+                    console.log(document.getElementsByTagName("img")[0].attributes);
+                    break;
+                case "oficina":
+                    document.getElementsByTagName("img")[0].setAttribute("src","https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960_960_720.jpg");
+                    break;
+                case "producion":
+                    document.getElementsByTagName("img")[0].setAttribute("src","https://cdn.pixabay.com/photo/2020/11/12/16/58/worker-5736096_960_720.jpg");
+                    break;
+            }
+        }
+        selector.addEventListener("change",changeImg);
+        window.addEventListener("load",changeImg);
         //Boton de descripcion
         function viewDescription(event) {
             document.getElementById("viewdetail").style.display="none";
