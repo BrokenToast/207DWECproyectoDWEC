@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+        *{
+            padding: 0; margin: 0;
+            box-sizing: content-box;
+            font-family: Montserrat ;
+            color: #008080;
+        }
+        #root{
+            height: 100vh; width: 100vw;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+        h1{
+            margin: 4% 0;
+        }
+        form{
+            width: 100%;height: 60%;
+            display: flex;
+            justify-content: center;
+        }
+        #tarea{
+            width: 80%; height: 10%;
+            font-size: 2em;
+            border-radius: 10px 0px 0px 10px;
+            border-color: #A52A2A;
+            border-style: solid;
+        }
+        #add{
+            width: 10%; height: 10.7%;
+            border: none;
+            border-radius: 0px 10px 10px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: white;
+            background-color: #A52A2A; 
+
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>Lista de tareas</h1>
+        <form>
+            <input type="text" name="tarea" id="tarea">
+            <input type="button" id="add" name="add" value="+">
+            <ul>
+
+            </ul>
+        </form>
+    </div>
+    <script>
+        var elementoform=document.forms[0].elements;
+        function añadir(params) {
+            
+        }
+    </script>
+</body>
+</html>

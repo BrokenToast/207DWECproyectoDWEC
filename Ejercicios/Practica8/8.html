@@ -16,6 +16,8 @@
             display: grid;
             grid-template-columns: 2fr 3fr 3fr ;
             grid-template-rows: 0.5fr 0.5fr 9fr;
+            position: relative;
+            z-index: 1;
         }
         /*Titulos*/
         h1{
@@ -43,6 +45,14 @@
         h2:nth-of-type(3){
             grid-row: 2/3;
             grid-column: 3/4;
+        }
+        /*cortina*/
+        img{
+            width: 100%; height: 100%;
+            display: none;
+            position: absolute;
+            z-index: 10;
+            top:-100%;
         }
         /*formulario*/
         form{
@@ -116,13 +126,14 @@
             height: 100%;
             border: 2px solid black;
             border-radius: 20px;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             font-size: 2em;
             font-weight:bold;
             
         }
+        /*clases*/
         .aplicacion{
             background-color: #41af7e;
         }
@@ -135,9 +146,19 @@
         .interfaz{
             background-color: #af30a9;
         }
+        /**/
+        .ver{
+            display: flex !important;
+        }
+        .bajar{
+            display: block;
+            top:0%;
+            transition: all 10s;
+        }
     </style>
 </head>
 <body>
+    <img src="https://media.tenor.com/sR6tkmxxrhQAAAAM/depressed-bored.gif" alt="">
     <div id="root">
         <h1>Niveles OSI y TCP/IP</h1>
         <h2></h2><h2>Modelo OSI</h2><h2>Modelo TCP/IP</h2>
@@ -150,6 +171,7 @@
             <input type="button" name="ocultartodo" value="Ocultar todo">
         </form>
         <section>
+                <!-- osi -->
                 <p class="aplicacion">Aplicación</p>
                 <p class="aplicacion">Presentación</p>
                 <p class="aplicacion">Sesión</p>
@@ -157,6 +179,7 @@
                 <p class="red">Red</p>
                 <p class="interfaz">Enlace a datos</p>
                 <p class="interfaz">Fisica</p>
+                <!-- tcp/ip -->
                 <p class="aplicacion">Aplicación</p>
                 <p class="transporte">Transporte</p>
                 <p class="red">Internet</p>
@@ -166,20 +189,48 @@
     <script>
         var elementForm=document.forms[0].elements;
         //checkbox
-        function mostrar() {
-            if(elementForm.checkbox.value=="tcp/ip"){
-                for (let index = 1; index < 8; index++) {
-                    setTimeout().
+        function mostrarOSI() {
+            let item=0;
+            let idIntervalo=setInterval(function (params) {
+                document.getElementsByTagName("p")[item].classList.toggle("ver")
+                item++;
+                if(item>6){
+                    clearInterval(idIntervalo);
                 }
-            }
-            if(elementForm.checkbox.value=="osi"){
-                for (let index = 8; index < 12; index++) {
-                    
-                }
-            }
+            } ,500)
         }
-        elementForm.checkbox.addEventListener("checked",mostrar);
-
+        function mostrarTCP() {
+            let item=7;
+            let idIntervalo=setInterval(function (params) {
+                document.getElementsByTagName("p")[item].classList.toggle("ver")
+                item++;
+                if(item>10){
+                    clearInterval(idIntervalo);
+                }
+            } ,500)
+        }
+        function movercortina() {
+            document.getElementsByTagName("img")[0].classList.toggle("bajar")
+        }
+        //Checkbox
+        let osi=elementForm.namedItem("osi");
+        let tcp=elementForm.namedItem("tcp/ip");
+        osi.addEventListener("click",mostrarOSI);
+        tcp.addEventListener("click",mostrarTCP);
+        //Ocultar los dos
+        elementForm.namedItem("ocultardos").addEventListener("click", function(){
+            if(tcp.checked){
+                mostrarTCP();
+            }
+            if(osi.checked){
+                mostrarOSI();
+            }
+            osi.checked=false;
+            tcp.checked=false;
+        });
+        //boton ocultar todo
+        elementForm.namedItem("ocultartodo").addEventListener("click",movercortina);
+        document.getElementsByTagName("img")[0].addEventListener("click",movercortina);
     </script>
 </body>
 </html>
