@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
         *{
             padding: 0; margin: 0;
-            box-sizing: content-box;
+            box-sizing: border-box;
             font-family: Montserrat ;
             color: #008080;
         }
@@ -20,22 +20,36 @@
             align-items: center;
         }
         h1{
-            margin: 4% 0;
+            margin: 1% 0;
+            font-size: 3em;
         }
         form{
-            width: 100%;height: 60%;
+            width: 100%;
+            padding: 3%;
             display: flex;
+            flex-flow: column;
             justify-content: center;
         }
+        form>div{
+            height: 100px;
+            display: flex;
+        }
+        ul{
+            margin-top: 2%;
+            padding-left: 4%;
+        }
+        li{
+            font-size: 2em;
+        }
         #tarea{
-            width: 80%; height: 10%;
+            width: 90%;
             font-size: 2em;
             border-radius: 10px 0px 0px 10px;
             border-color: #A52A2A;
             border-style: solid;
         }
         #add{
-            width: 10%; height: 10.7%;
+            width: 10%;
             border: none;
             border-radius: 0px 10px 10px 0px;
             display: flex;
@@ -44,7 +58,6 @@
             font-size: 3em;
             color: white;
             background-color: #A52A2A; 
-
         }
     </style>
 </head>
@@ -52,18 +65,54 @@
     <div id="root">
         <h1>Lista de tareas</h1>
         <form>
-            <input type="text" name="tarea" id="tarea">
-            <input type="button" id="add" name="add" value="+">
-            <ul>
-
-            </ul>
+            <div>
+                <input type="text" name="tarea" id="tarea">
+                <input type="button" id="add" name="add" value="+">
+            </div>
         </form>
     </div>
-    <script>
-        var elementoform=document.forms[0].elements;
-        function añadir(params) {
-            
+    <script async>
+        var lista=document.createElement("ul");
+        function loadCookie() {
+            lista.innerHTML=window.localStorage.getItem("listaTarea");
+            document.forms[0].appendChild(lista);
+            for (const element of lista.children) {
+                añadirEventos(element);
+            }
         }
+        window.addEventListener("load",loadCookie)
+        var elementoform=document.forms[0].elements;
+        var textTarea=elementoform.namedItem("tarea");
+        function addElement(params) {
+            let tarea=document.createElement("li");
+            let boton=document.createElement("input");
+            boton.setAttribute("type","button");
+            boton.setAttribute("name","delete");
+            boton.setAttribute("value","delete");
+            boton.classList.add("boton");
+            tarea.textContent=textTarea.value;
+            tarea.appendChild(boton);
+            lista.appendChild(tarea);
+            window.localStorage.setItem("listaTarea",lista.innerHTML);
+            añadirEventos(tarea);
+            textTarea.value="";
+            textTarea.focus();
+        }
+        function removeElment(event){
+            lista.removeChild(event.target.parentElement);
+            window.localStorage.setItem("listaTarea",lista.innerHTML);
+        }
+        function moveUP(event) {
+            lista.removeChild(event.target);
+            lista.insertBefore(event.target,lista.children[0]);
+            añadirEventos(event.target)
+        }
+        function añadirEventos(tarea) {
+            tarea.children[0].addEventListener("click",removeElment);
+            tarea.addEventListener("click",moveUP);
+        }
+        elementoform.namedItem("add").addEventListener("click",addElement);
+        // window.localStorage.clear();
     </script>
 </body>
 </html>
