@@ -75,11 +75,12 @@
         var lista=document.createElement("ul");
         function loadCookie() {
             lista.innerHTML=window.localStorage.getItem("listaTarea");
-            document.forms[0].appendChild(lista);
+            
             for (const element of lista.children) {
                 añadirEventos(element);
             }
         }
+        document.forms[0].appendChild(lista);
         window.addEventListener("load",loadCookie)
         var elementoform=document.forms[0].elements;
         var textTarea=elementoform.namedItem("tarea");

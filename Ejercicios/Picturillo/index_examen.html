@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EXAMEN DESARROLLO WEB ENTORNO CLIENTE 2022</title>
+<link type="text/css" rel="stylesheet" href="estilos_examen.css" />
+<script type="text/javascript" src="js_examen.js"></script>
+</head>
+<body>
+
+<div id="panel">
+  <h1>DIBUJO EN JAVASCRIPT</h1>
+<form>
+  <label for="">Introduzca el tamaño del lienzo:</label>
+  <input type="number" id="tam_lienzo" value="70">  
+  <button type="button" id="crear_lienzo">Crear lienzo</button>
+  <button type="button" id="borrar">Borrar dibujo</button>
+</form>
+<table width="500" border="1"  summary="Tabla de selección de colores">
+  <tr id="paleta"><td class="color1 seleccionado"></td><td class="color2"></td><td class="color3"></td><td class="color4"></td><td class="color5"></td><td class="color6"></td></tr>
+  <tr><td colspan="6" id="pincel">Estado del pincel</td></tr>
+</table>
+</div>
+
+<div id="server">
+  <h1>PINTURILLO</h1>
+  <form>
+    <button type="button" id="descargar_temas">Descargar temas</button>
+    <select name="temas" id="temas">
+      <option selected="yes" value="selecciona">Selecciona un tema...</option>
+    </select>
+  </form>
+  <table width="275" border="2">
+    <caption>
+      <button type="button" id="que_dibujo">¿Qué dibujo?</button>
+    </caption>
+    <tr><td  id="dibujo_aleatorio">DIBUJO</td></tr>
+  </table>
+  </div>
+
+<div id="lienzo">
+  <p></p> 
+  <table id="dibujo"></table>
+</div>
+</body>
+</html>

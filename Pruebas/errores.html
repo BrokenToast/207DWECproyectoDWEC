@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //'use strict' // Es para que el java script sea stricto en variables... (Implementado en ECMAN 5)
+        function numero() {
+            var num=prompt("Introduce un numero");
+            if(isNaN(num)){
+                throw new Error("No es un numero");
+            }
+            return num;
+        }
+        try {
+            alert(numero());
+        } catch (error){
+            alert(error);
+        }finally{
+            alert("Aparezco siempre");
+        }
+    </script>
+</body>
+</html>
