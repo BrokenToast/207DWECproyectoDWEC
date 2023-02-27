@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+</head>
+<body>
+    <script>
+        var nombre="aninimo";
+        //Creación de la promesa
+        var promesa=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                let patron=/[0-9]+/;
+                nombre=prompt("Introduce tu nombre");
+                if(patron.test(nombre)){
+                    reject(new Error("No puede contener numeros"));
+                }else{
+                    resolve("Tarea cumplida");
+                }
+            },3000);
+        });
+        //Como trabajar con la promesa
+        promesa.then(function(valor) {
+            console.log(nombre);
+            alert(valor);
+        }).catch(function (value){
+            alert(value.message);
+        }).finally(function(){
+            alert("La promesa se a acabado");
+        });
+    
+    </script>
+</body>
+</html>

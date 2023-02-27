@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="accion_examen.js"></script>
+    <link type="text/css" rel="stylesheet" href="estilos_examen.css" />
+</head>
+
+<body>
+    <div id="encabezado">
+
+        <h2>Examen DWEC - 17 de Febrero 2023</h2>
+        <h1>DAW2 </h1>
+
+    </div>
+    <div id="DOM">
+
+    </div>
+    <div id="informacion">
+
+    </div>
+    <fieldset>
+        <legend>Examen 17 de Febrero - DAW2</legend>
+        <form name="formulario" id="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" class="error"/>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" id="apellidos" class="error"/>
+            <label for="edad">Edad:</label>
+            <input name="edad" type="text" id="edad" maxlength="3" class="error"/>
+            <label for="ccaa">Comunidad Autónoma:</label>
+            <select name="ccaa" id="ccaa">
+                <option value="0" selected="selected">Seleccione CCAA</option>
+                <option value="GA">Galicia</option>
+                <option value="CL">Castilla y León</option>
+                <option value="EX">Extremadura</option>
+                <option value="PV">País Vasco</option>
+            </select>
+            <label for="provincia">Provincia:</label>
+            <select name="provincia" id="provincia">
+                <option value="0" selected="selected">Seleccione Provincia</option>
+            </select>
+            <input type="reset" name="limpiar" id="button" value="Limpiar" />
+            <input type="submit" name="enviar" id="enviar" value="Enviar" />
+        </form>
+        <div id="errores"></div>
+        <div id="intentos"></div>
+    </fieldset>
+    <div id="captcha" class="captcha">
+        <p>DEMUESTRA QUE NO ERES UN ROBOT:</p>
+        <div id="num1" class="cuestion"></div>
+        <div class="cuestion">+</div>
+        <div id="num2" class="cuestion"></div>
+        <div class="cuestion">=</div>
+        <div class="cuestion resultado"></div>
+
+        <div id="sol1" class="opcaptcha" draggable="true"></div>
+        <div id="sol2" class="opcaptcha" draggable="true"></div>
+        <div id="sol3" class="opcaptcha" draggable="true"></div>
+    </div>
+
+    <footer id="pie">
+        <button id="btnweb">Mi Web</button>
+        <button id="btndom">DOM</button>
+        <button id="btninfo">Información</button>
+    </footer>
+</body>
+
+</html>
