@@ -8,7 +8,52 @@
 </head>
 <body>
     <script>
-        
+        // let conexion=new XMLHttpRequest();
+        // conexion.onreadystatechange= ()=>{
+        //     if(conexion.readyState==4&&conexion.status==200){
+        //         console.log(conexion.status);
+        //         console.log(conexion.response);
+        //     }
+        // }
+        // conexion.addEventListener("readystatechange",()=>{
+        //     if(conexion.readyState==4&&conexion.status==200){
+        //         console.log(conexion.status);
+        //         console.log(conexion.response);
+        //     }
+        // });
+        // conexion.onload=()=>{
+        //     console.log(conexion.readyState);
+        //     console.log(conexion.responseText);
+        // };
+        // conexion.open("GET","https://opendata.aemet.es/opendata/api/observacion/convencional/datos/estacion/$codEstacion?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzcGF0YkBnbWFpbC5jb20iLCJqdGkiOiI4ZmJhZmY1Mi0yMGRjLTRmMGUtYjYyZi0xMTAzNDE1NzY1YjYiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY3NDk4Mjk2NSwidXNlcklkIjoiOGZiYWZmNTItMjBkYy00ZjBlLWI2MmYtMTEwMzQxNTc2NWI2Iiwicm9sZSI6IiJ9.gxAthEAW4Gp6n3ZYAvKm-R316fuINhmmdEy-75ZfLRI");
+        // conexion.setRequestHeader("crossDomain","true");
+        // conexion.setRequestHeader("dataType","xml");
+        // conexion.setRequestHeader('Access-Control-Allow-Origin','*');
+        // conexion.send();
+        //Access-Control-Allow-Origin: https://www.aemet.es/xml/municipios/localidad_49021.xml
+        let conexionJSON=new XMLHttpRequest();
+        conexionJSON.onload=()=>{
+            let catalogoCD=JSON.parse(conexionJSON.response);
+            console.log(catalogoCD);
+            catalogoCD['CATALOG']['CD'][26]={
+                ARTIST: "EL bacalao",
+                COMPANY: "Nose",
+                COUNTRY: "AAAA",
+                PRICE: "999.99",
+                TITLE: "Como huela",
+                YEAR: "2050"
+            }
+            console.log(catalogoCD);
+        };      
+        conexionJSON.open("GET","catalogo.json");
+        conexionJSON.send();
+
+        conexionXML=new XMLHttpRequest();
+        conexionXML.onload=()=>{
+            console.log(conexionXML.responseXML);
+        };  
+        conexionXML.open("GET","cd_catalog.xml");
+        conexionXML.send();
     </script>
 </body>
 </html>
