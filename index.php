@@ -22,6 +22,9 @@
         <input type="radio" name="submenu" id="openPractica3">
         <input type="radio" name="submenu" id="openPractica4">
         <input type="radio" name="submenu" id="openPractica5">
+        <input type="radio" name="submenu" id="openPractica6">
+        <input type="radio" name="submenu" id="openPractica7">
+        <input type="radio" name="submenu" id="openPractica8">
         <input type="radio" name="submenu" id="openGranja">
         <input type="radio" name="submenu" id="openExamen">
         <ul>
@@ -43,6 +46,21 @@
             </li>
             <li>
                 <label for="openPractica5">Practica 5</label>
+            </li>
+            <li>
+                <label for="openPractica6">Practica 6</label>
+            </li>
+            <li>
+                <label for="openPractica7">Practica 7</label>
+            </li>
+            <li>
+                <label for="openPractica8">Practica 8</label>
+            </li>
+            <li>
+                <label for="openPractica8">Practica 9</label>
+            </li>
+            <li>
+                <label for="openPractica8">Practica 10</label>
             </li>
             <li>
                 <a href="./Ejercicios/Granja/vista/index.html">Granaja</a>
@@ -94,6 +112,34 @@
                     ["7.Crea un script que valide un código postal (formado por 5 números del 00000 al 52999).","Ejercicios/Practica5/7.html","Ejercicios/Practica5/mostrar7.php"],
                     ["8.Crea un script para validar que un documento recibido tenga formato pdf o docx.","Ejercicios/Practica5/8.html","Ejercicios/Practica5/mostrar8.php"],
                     ["9.Crea una aplicación web que sirva para validar NIFs indicando si es correcto o no. Un NIF consta de una posible primera letra que puede ser X, Y o Z. Si no tiene letra llevará un número. A continuación, habrá 7 números más.","Ejercicios/Practica5/9.html","Ejercicios/Practica5/mostrar9.php"],
+                ],
+                [
+                    ["1.aaa","Ejercicios/Practica6/1.html","Ejercicios/Practica6/mostrar1.php"],
+                    ["2.aaa","Ejercicios/Practica6/2.html","Ejercicios/Practica6/mostrar2.php"],
+                ],
+                [
+                    ["1.En editores como Visual Studio Code, que tienen el módulo Emmetincorporado, se pueden crear párrafos con  el  texto  clásico  de  pruebas “Lorem ipsum...”.  Si  estando  en  el  bodyde  una  nueva  página  web escribimos ol>li*9>loremy luego pulsamos el tabulador, se crearán 9 párrafos numerados con el texto en cuestión. Una vez creados los párrafos, el ejercicio consistirá en pedir al usuario un texto y un número del 1 al 10 para la posición de ese texto. El texto introducido se mostrará en negrita y en la posición indicada sin eliminar ninguno de los párrafos anteriores. Se debe controlar que el usuario introduzca datos válidos. Si el usuario cancela, la aplicación no hace nada.","Ejercicios/Practica7/1.html","Ejercicios/Practica7/mostrar1.php"],
+                    ["2.Genera  una  página  con  mucho  contenido.  Por  ejemplo,  con p*50>lorem600seguido  de  tabulador. Preguntaremos al usuario que velocidad de scroll desea hacerentre suave, normal o rápido y dependiendo de la elección delusuario se hará scroll en la página a una velocidad más rápida o más lenta.","Ejercicios/Practica7/2.html","Ejercicios/Practica7/mostrar2.php"],
+                    ["3.Crea una web  con contenido. Crea una  aplicación que pida una palabra  al usuario y marque dentro del texto, todas lasapariciones de esa palabra.Para ello se aconseja la creación de dos funciones.","Ejercicios/Practica7/3.html","Ejercicios/Practica7/mostrar3.php"],
+                    ["4.Creauna páginaque muestre una lista de palabras(unas 10).Laspalabras irán apareciendo de una en una cadasegundo.Pasados 3 segundos, le preguntaremos al usuario si quiere que la lista de palabras aparezca ordenadaalfabéticamente. Si acepta la sugerencia, reordena las palabras.","Ejercicios/Practica7/4.html","Ejercicios/Practica7/mostrar4.php"],
+                    ["5.Crear dentro de vuestra aplicación final,un reloj con la hora actualdonde los números serán imágenes o gifssacados de internet.","Ejercicios/Practica7/5.html","Ejercicios/Practica7/mostrar5.php"],
+                ],
+                [
+                    ["1.Crea una página web con bastantes párrafos. Haz que en cada movimiento de ratón sobre la página, un pequeño cartel con fondo amarillo y el texto “TE SIGO”, siga al cursor del usuario.","Ejercicios/Practica8/1.html","Ejercicios/Practica8/mostrar1.php"],
+                    ["2.Crea una página web que tenga un texto que indique que al pulsar alt+F12, podremos colocar una imagen de fondo. El texto tiene que salir centrado. La idea es qué inicialmente aparezca una pantalla negra con el texto y hasta que el usuario no pulse la tecla, la imagen no se muestre.","Ejercicios/Practica8/2.html","Ejercicios/Practica8/mostrar2.php"],
+                    ["3.Crear una aplicación web que muestre una capa centrada que ocupe el 50% del ancho y el alto de la ventana.","Ejercicios/Practica8/3.html","Ejercicios/Practica8/mostrar3.php"],
+                    ["4.Crea una aplicación web que muestre el texto: velocidad 0. Si pulsamos la tecla de la flecha hacia arriba del teclado, la velocidad se incremente en 1. Si es la flecha hacia abajo, la velocidad baja en 1. La velocidad no puede sobrepasar los 120 ni descender de cero. Experimenta con los eventos de teclado(keyup, keydown y keypress) para investigar cuál es el más apropiado en este caso.","Ejercicios/Practica8/4.html","Ejercicios/Practica8/mostrar4.php"],
+                    ["5.Crea una capa que ocupe el 50% del ancho y el alto de la ventana y que en ella se muestre una gran cantidad de texto a la que podemos acceder mediante las barras de desplazamiento. Cuando hayamos conseguido llegar al final del desplazamiento, se mostrará un botón con el texto “Cerrar”. Haciendo clic en él, se elimina la capa anterior.","Ejercicios/Practica8/5.html","Ejercicios/Practica8/mostrar5.php"],
+                    ["6.Crea una aplicación que muestre dos capas del mismo tamaño concretamente 200 píxeles de ancho por 100 de alto. La primera capa mostrará el texto “Soy arrastrable” y tendrá fondo amarillo y la segunda muestra “Soy el destino” y tiene fondo blanco. Ambas dejan un borde de un píxel negro. la aplicación permite arrastrar la primera sobre la segunda. Durante el arrastre, la primera capa se mostrará con una opacidad del 50%. Al arrastrar sobre la segunda, esta (el destino) se muestra con fondo rojo. Al soltar en esa segunda capa, la primera desaparece y en la segunda aparecerá el texto “¡Lo has logrado!”.","Ejercicios/Practica8/6.html","Ejercicios/Practica8/mostrar6.php"],
+                    ["7.Crea una aplicación con esta apariencia inicial:","Ejercicios/Practica8/7.html","Ejercicios/Practica8/mostrar7.php"],
+                    ["8.Crea una aplicación web con esta apariencia aproximada:","Ejercicios/Practica8/8.html","Ejercicios/Practica8/mostrar8.php"],
+                    ["9.Crea una aplicación web con la apariencia siguiente","Ejercicios/Practica8/9.html","Ejercicios/Practica8/mostrar9.php"],
+                ],
+                [
+                    ["1.Crea una página web con bastantes párrafos. Haz que en cada movimiento de ratón sobre la página, un pequeño cartel con fondo amarillo y el texto “TE SIGO”, siga al cursor del usuario.","Ejercicios/Practica9/catalogoMusica.html","Ejercicios/Practica9/mostrar1.php"],
+                ],
+                [
+                    ["1.Crea una página web con bastantes párrafos. Haz que en cada movimiento de ratón sobre la página, un pequeño cartel con fondo amarillo y el texto “TE SIGO”, siga al cursor del usuario.","Ejercicios/Practica10/index_repaso.html","Ejercicios/Practica10/mostrar1.php"],
                 ],
                 [
                     ["1.aaaa","Examenes/1evaluacion/1.html","Examenes/1evaluacion/mostrar1.php"],

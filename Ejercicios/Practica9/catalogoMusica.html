@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="nosequeponerayuda">
+        <option value="defecto" selected>Seleciona un campo</option>
+        <option value="pais">Pais</option>
+        <option value="company">Compañia</option>
+        <option value="year">Año</option>
+        <option value="precio">Precio</option>
+    </select>
+    <script>
+        // Tenemos que crear una tabla que permanente mente tiene una cokumna de titulo y artistas, mediante un campo de lista con boton mostraresmos los demas campos añadiendo columnas y quitando.
+        function creteColum(value) {
+            let column=document.createElement("td");
+            column.textContent=value;
+            return column;
+        }
+        function creteColumTitle(value) {
+            let column=document.createElement("th");
+            column.textContent=value;
+            return column;
+        }
+        
+        var column=new Map();
+        var tabla=document.createElement("table");
+        tabla.setAttribute("id","catalogo");
+        let encabezadoTable=document.createElement("tr");
+        encabezadoTable.appendChild(creteColumTitle("Titulo"));
+        encabezadoTable.appendChild(creteColumTitle("Artista"));
+        tabla.appendChild(encabezadoTable);
+
+        let conexion=new XMLHttpRequest();
+        conexion.onload=event=>{
+            let catalogoMusica=JSON.parse(conexion.responseText);
+            let pais=[];
+            let company=[];
+            let precio=[];
+            let year=[];
+            document.body.appendChild(tabla);
+            for (const CD of catalogoMusica['CATALOG']['CD']) {
+                let row=document.createElement("tr");
+                row.appendChild(creteColum(CD['TITLE']));
+                row.appendChild(creteColum(CD['ARTIST']));
+                pais.push(CD['COUNTRY']);
+                company.push(CD['COMPANY']);
+                precio.push(CD['PRICE']);
+                year.push(CD['YEAR']);
+                tabla.appendChild(row);
+            }
+            column.set("pais",pais);
+            column.set("company",company);
+            column.set("precio",precio);
+            column.set("year",year);
+            console.log(column);
+        };
+        conexion.onerror=event=>{
+            alert("error")
+        }
+        conexion.open("GET","./catalogo.json");
+        conexion.send();
+
+        document.getElementById("nosequeponerayuda").addEventListener("change",event=>{
+            if(tabla.children[0].children.length==3){
+                for (const row of tabla.children) {
+                    row.removeChild(row.children[2]);
+                }
+                event.target.children[2]
+            }
+            if(event.target.value!="defecto"){
+                let columnSelect=column.get(event.target.value);
+                let num=0;
+                encabezadoTable.appendChild(creteColumTitle(event.target.value));
+                let postArray=0;
+                let fila = 0;
+                for ( fila < tabla.children.length ; ++fila; ++postArray) {
+                    tabla.children[fila].appendChild(creteColum(columnSelect[postArray]));
+                }
+            }
+        });
+    </script>
+</body>
+</html>

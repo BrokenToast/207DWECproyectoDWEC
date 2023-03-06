@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+    background-color: rgb(235, 229, 229);
+    
+    font-size: medium;
+}
+
+button {
+    width: 200px;
+    height: 60px;
+    font-size: 1.5em;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    background-color: teal;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+}
+.cerrar{
+    background-color: brown;
+}
+button:hover {
+    background-color: rgb(9, 185, 185);
+}
+
+.cerrar:hover {
+    background-color: red;
+}
+
+label {
+    width: 200px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 150px;
+    float: left;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+
+fieldset {
+    background: lightgreen;
+    width: 370px;
+    border: thick solid rgb(237, 83, 28);
+}
+
+legend {
+
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-color: #FFF;
+}
+
+.error {
+    border: solid 3px #FF0000 !important;
+
+}
+.correcto{
+    border: solid 3px #039e1d !important;
+
+}
+
+.captcha {
+    text-align: center;
+    position: relative;
+    width: 390px;
+    height: 250px;
+    display: none;
+}
+
+.cuestion {
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: xx-large;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 5px;
+    margin-top: 20px;
+
+}
+
+.resultado {
+    border: thick solid rgb(14, 121, 121);
+
+}
+
+.opcaptcha {
+
+    border: thick solid teal;
+    color: rgb(14, 121, 121);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: xx-large;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 25px;
+    margin-top: 20px;
+    background-color: lightgray;
+
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    background-color: lightgray;
+    width: 100%;
+}
+
+#DOM {
+    font-family: "Montserrat", sans-serif;
+    width: 25%;
+    height: 400px;
+    border: 1px solid black;
+    overflow: scroll;
+    float: right;
+    display: none;
+}
+#informacion {
+    font-family: "Montserrat", sans-serif;
+    width: 25%;
+    height: 400px;
+    border: 1px solid black;
+    overflow: scroll;
+    float: right;
+    display: none;
+}
+
+#encabezado {
+    font-family: "Montserrat", sans-serif;
+    border-width: 10px;
+    border-style: groove;
+    font-size: 1.5em;
+    text-align: center;
+    color: teal;
+    background-color: lightgray;
+}

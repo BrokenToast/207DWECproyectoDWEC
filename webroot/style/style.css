@@ -137,6 +137,15 @@ nav a:hover{
 #openPractica5:checked~ul label[for="openPractica5"]{
     background-color: blue;
 }
+#openPractica6:checked~ul label[for="openPractica6"]{
+    background-color: blue;
+}
+#openPractica7:checked~ul label[for="openPractica7"]{
+    background-color: blue;
+}
+#openPractica8:checked~ul label[for="openPractica8"]{
+    background-color: blue;
+}
 #openGranja:checked~ul label[for="openGranja"]{
     background-color: blue;
 }
@@ -159,10 +168,19 @@ nav a:hover{
 #openPractica5:checked~.submenu:nth-of-type(5){
     right: 0;
 }
-#openGranja:checked~.submenu:nth-of-type(7){
+#openPractica6:checked~.submenu:nth-of-type(6){
     right: 0;
 }
-#openExamen:checked~.submenu:nth-of-type(6){
+#openPractica7:checked~.submenu:nth-of-type(7){
+    right: 0;
+}
+#openPractica8:checked~.submenu:nth-of-type(8){
+    right: 0;
+}
+#openGranja:checked~.submenu:nth-of-type(9){
+    right: 0;
+}
+#openExamen:checked~.submenu:nth-of-type(10){
     right: 0;
 }
 /*Contenido*/
