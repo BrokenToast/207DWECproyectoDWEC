@@ -7,28 +7,56 @@
     <title>Document</title>
 </head>
 <body>
-    <p></p>
     <script>
-        async function popDeCadaUsuario(persona) {
-            let perfil=document.createElement("div");
-            perfil.classList.add("perfiles");
-            perfil.innerHTML=`<p>Nombre${persona['name']['title']}</p><p>Apellidos:${persona['name']['first']} ${persona['name']['last']}</p><p>${persona['email']}</p><p>${persona['phone']}</p>`;
-            console.log(persona['picture']['medium']);
-
-            let img=document.createElement("img");
-            img.setAttribute("src", persona['picture']['medium']);
-            perfil.appendChild(img);
-            document.body.appendChild(perfil);
+        let altura=4;
+        let ancho=4;
+        var aTablero=[];
+        for (let y = 0; y < altura; y++) {
+            let fila=[]
+            for (let x = 0; x < ancho; x++) {
+                fila.push(null);
+            }
+            aTablero.push(fila);
         }
-
-        fetch("https://randomuser.me/api/?results=10")
+        function posicionRandom(imagen) {
+            do{
+                var y=parseInt(Math.random()*altura);
+                var x=parseInt(Math.random()*ancho);
+            }while(aTablero[y][x]!=null);
+            aTablero[y][x]=imagen;
+        }
+        function createTable() {
+            for (let pareja = 0; pareja < 8; pareja++) {
+                for (let carta = 0; carta < 2; carta++) {
+                    posicionRandom(aImagenes[pareja]);
+                }
+            }
+        }
+        function pintar() {
+            let table=document.createElement("table");
+            for (const x of aTablero) {
+                let fila=document.createElement("tr");
+                for (const element of x) {
+                    let casilla=document.createElement("td");
+                    casilla.innerHTML=`<img src="${element}">`;
+                    fila.appendChild(casilla);
+                }
+                table.appendChild(fila);
+            }
+            document.body.appendChild(table);
+        }
+        let aImagenes=[];
+        fetch("https://randomuser.me/api/?results=8")
         .then(resultado=>resultado.json())
         .then(datosJson=>{
             for (const persona of datosJson['results']) {
-                popDeCadaUsuario(persona);
+                aImagenes.push(persona['picture']['medium']);
             }
+            createTable();
+            console.log(aTablero);
+            pintar();
         })
-        .catch(error=> alert("A ocurrido un error"))
+        // .catch(error=> alert("A ocurrido un erro"));
     </script>
 </body>
 </html>
