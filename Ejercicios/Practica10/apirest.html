@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        td{
+            width: 70px; height: 70px;
+            background-color: red;
+        }
+        .mostrada{
+            display: block;
+        }
+        .oculta{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <script>
         let altura=4;
         let ancho=4;
         var aTablero=[];
+        var cartaA=null;
         for (let y = 0; y < altura; y++) {
             let fila=[]
             for (let x = 0; x < ancho; x++) {
@@ -32,13 +45,36 @@
                 }
             }
         }
+        function cambiarEstado(element) {
+            element.classList.toggle("mostrar");
+            element.classList.toggle("oculta");
+        }
         function pintar() {
             let table=document.createElement("table");
             for (const x of aTablero) {
                 let fila=document.createElement("tr");
                 for (const element of x) {
                     let casilla=document.createElement("td");
-                    casilla.innerHTML=`<img src="${element}">`;
+                    casilla.innerHTML=`<img src="${element}" class="oculta">`;
+                    casilla.addEventListener("click",async event=>{
+                        cambiarEstado(event.target.children[0])
+                        if(cartaA==null){
+                            cartaA=event.target.children[0];
+                        }else{
+                            console.log(cartaA.getAttribute("src")==event.target.children[0].getAttribute("src"));
+                            if(cartaA.getAttribute("src")==event.target.children[0].getAttribute("src")){
+                                cartaA=null;
+                            }else{
+                                await setTimeout(() => {
+                                    cambiarEstado(cartaA);
+                                    cambiarEstado(event.target.children[0]);
+                                    cartaA=null;
+                                }, 1000);
+                                
+                            }
+                        }
+                        console.log(cartaA);
+                    })
                     fila.appendChild(casilla);
                 }
                 table.appendChild(fila);
@@ -53,10 +89,10 @@
                 aImagenes.push(persona['picture']['medium']);
             }
             createTable();
-            console.log(aTablero);
             pintar();
         })
-        // .catch(error=> alert("A ocurrido un erro"));
+        .catch(error=> alert("A ocurrido un erro"));
+        
     </script>
 </body>
 </html>

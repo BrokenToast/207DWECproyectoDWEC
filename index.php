@@ -25,6 +25,8 @@
         <input type="radio" name="submenu" id="openPractica6">
         <input type="radio" name="submenu" id="openPractica7">
         <input type="radio" name="submenu" id="openPractica8">
+        <input type="radio" name="submenu" id="openPractica9">
+        <input type="radio" name="submenu" id="openPractica10">
         <input type="radio" name="submenu" id="openGranja">
         <input type="radio" name="submenu" id="openExamen">
         <ul>
@@ -57,10 +59,10 @@
                 <label for="openPractica8">Practica 8</label>
             </li>
             <li>
-                <label for="openPractica8">Practica 9</label>
+                <label for="openPractica9">Practica 9</label>
             </li>
             <li>
-                <label for="openPractica8">Practica 10</label>
+                <label for="openPractica10">Practica 10</label>
             </li>
             <li>
                 <a href="./Ejercicios/Granja/vista/index.html">Granaja</a>
@@ -136,10 +138,10 @@
                     ["9.Crea una aplicación web con la apariencia siguiente","Ejercicios/Practica8/9.html","Ejercicios/Practica8/mostrar9.php"],
                 ],
                 [
-                    ["1.Crea una página web con bastantes párrafos. Haz que en cada movimiento de ratón sobre la página, un pequeño cartel con fondo amarillo y el texto “TE SIGO”, siga al cursor del usuario.","Ejercicios/Practica9/catalogoMusica.html","Ejercicios/Practica9/mostrar1.php"],
+                    ["Catalogo de musica","Ejercicios/Practica9/catalogoMusica.html","Ejercicios/Practica9/mostrar1.php"],
                 ],
                 [
-                    ["1.Crea una página web con bastantes párrafos. Haz que en cada movimiento de ratón sobre la página, un pequeño cartel con fondo amarillo y el texto “TE SIGO”, siga al cursor del usuario.","Ejercicios/Practica10/index_repaso.html","Ejercicios/Practica10/mostrar1.php"],
+                    ["Uso de una api rest","Ejercicios/Practica10/index_repaso.html","Ejercicios/Practica10/mostrar1.php"],
                 ],
                 [
                     ["1.aaaa","Examenes/1evaluacion/1.html","Examenes/1evaluacion/mostrar1.php"],
