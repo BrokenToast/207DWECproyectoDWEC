@@ -29,7 +29,7 @@
         <input type="radio" name="submenu" id="openPractica10">
         <input type="radio" name="submenu" id="openGranja">
         <input type="radio" name="submenu" id="openExamen">
-        <input type="radio" name="submenu" id="openExame2">
+        <input type="radio" name="submenu" id="openExamen2">
         <ul>
             <li>
                 <label for="close">Salir</label>
@@ -120,8 +120,8 @@
                     ["9.Crea una aplicación web que sirva para validar NIFs indicando si es correcto o no. Un NIF consta de una posible primera letra que puede ser X, Y o Z. Si no tiene letra llevará un número. A continuación, habrá 7 números más.","Ejercicios/Practica5/9.html","Ejercicios/Practica5/mostrar9.php"],
                 ],
                 [
-                    ["1.aaa","Ejercicios/Practica6/1.html","Ejercicios/Practica6/mostrar1.php"],
-                    ["2.aaa","Ejercicios/Practica6/2.html","Ejercicios/Practica6/mostrar2.php"],
+                    ["1.","Ejercicios/Practica6/1.html","Ejercicios/Practica6/mostrar1.php"],
+                    ["2.","Ejercicios/Practica6/2.html","Ejercicios/Practica6/mostrar2.php"],
                 ],
                 [
                     ["1.En editores como Visual Studio Code, que tienen el módulo Emmetincorporado, se pueden crear párrafos con  el  texto  clásico  de  pruebas “Lorem ipsum...”.  Si  estando  en  el  bodyde  una  nueva  página  web escribimos ol>li*9>loremy luego pulsamos el tabulador, se crearán 9 párrafos numerados con el texto en cuestión. Una vez creados los párrafos, el ejercicio consistirá en pedir al usuario un texto y un número del 1 al 10 para la posición de ese texto. El texto introducido se mostrará en negrita y en la posición indicada sin eliminar ninguno de los párrafos anteriores. Se debe controlar que el usuario introduzca datos válidos. Si el usuario cancela, la aplicación no hace nada.","Ejercicios/Practica7/1.html","Ejercicios/Practica7/mostrar1.php"],
@@ -145,14 +145,17 @@
                     ["Catalogo de musica","Ejercicios/Practica9/catalogoMusica.html","Ejercicios/Practica9/mostrar1.php"],
                 ],
                 [
-                    ["Uso de una api rest","Ejercicios/Practica10/index_repaso.html","Ejercicios/Practica10/mostrar1.php"],
+                    ["Uso de una api rest","Ejercicios/Practica10/apirest.html","Ejercicios/Practica10/mostrar1.php"],
                 ],
                 [
-                    ["1.aaaa","Examenes/1evaluacion/1.html","Examenes/1evaluacion/mostrar1.php"],
-                    ["2.aaaa","Examenes/1evaluacion/2.html","Examenes/1evaluacion/mostrar2.php"],
-                    ["3.aaaa","Examenes/1evaluacion/3.html","Examenes/1evaluacion/mostrar3.php"],
-                    ["4.aaaa","Examenes/1evaluacion/4/main.html","Examenes/1evaluacion/mostrar4.php"],
-                    ["5.aaaa","Examenes/1evaluacion/5.html","Examenes/1evaluacion/mostrar5.php"],
+                    ["1.","Examenes/1evaluacion/1.html","Examenes/1evaluacion/mostrar1.php"],
+                    ["2.","Examenes/1evaluacion/2.html","Examenes/1evaluacion/mostrar2.php"],
+                    ["3.","Examenes/1evaluacion/3.html","Examenes/1evaluacion/mostrar3.php"],
+                    ["4.","Examenes/1evaluacion/4/main.html","Examenes/1evaluacion/mostrar4.php"],
+                    ["5.","Examenes/1evaluacion/5.html","Examenes/1evaluacion/mostrar5.php"],
+                ],
+                [
+                    ["Creacion de el JavaScript para una pagina web","Examenes/Segunda_evaluacion/index_examen.html","Examenes/Segunda_evaluacion/mostrar1.php"],
                 ],
             ];
             foreach($aEjercicios as $aEjercicio){

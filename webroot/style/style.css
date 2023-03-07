@@ -158,6 +158,9 @@ nav a:hover{
 #openExamen:checked~ul label[for="openExamen"]{
     background-color: blue;
 }
+#openExamen2:checked~ul label[for="openExamen2"]{
+    background-color: blue;
+}
 
 #openPractica1:checked~.submenu:nth-of-type(1){
     right: 0;
@@ -189,13 +192,12 @@ nav a:hover{
 #openPractica10:checked~.submenu:nth-of-type(10){
     right: 0;
 }
-#openGranja:checked~.submenu:nth-of-type(11){
+#openExamen:checked~.submenu:nth-of-type(11){
     right: 0;
 }
-#openExamen:checked~.submenu:nth-of-type(12){
+#openExamen2:checked~.submenu:nth-of-type(12){
     right: 0;
 }
-
 /*Contenido*/
 main{
     margin-bottom: 10%;
