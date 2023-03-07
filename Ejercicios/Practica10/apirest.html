@@ -16,21 +16,16 @@
         .oculta{
             display: none;
         }
+        div{
+            width: 500px; height: 500px;
+            display: none;
+            position: absolute;
+        }
     </style>
 </head>
 <body>
+    <div id="cortina"></div>
     <script>
-        let altura=4;
-        let ancho=4;
-        var aTablero=[];
-        var cartaA=null;
-        for (let y = 0; y < altura; y++) {
-            let fila=[]
-            for (let x = 0; x < ancho; x++) {
-                fila.push(null);
-            }
-            aTablero.push(fila);
-        }
         function posicionRandom(imagen) {
             do{
                 var y=parseInt(Math.random()*altura);
@@ -49,6 +44,24 @@
             element.classList.toggle("mostrar");
             element.classList.toggle("oculta");
         }
+        function interacionCarta(event){
+            cambiarEstado(event.target.children[0]);
+            if(cartaA==null){
+                cartaA=event.target.children[0];
+            }else{
+                if(cartaA.getAttribute("src")==event.target.children[0].getAttribute("src")){
+                    cartaA=null;
+                }else{
+                    cortina.style.display="block"
+                    setTimeout(() => {
+                        cambiarEstado(cartaA);
+                        cambiarEstado(event.target.children[0]);
+                        cartaA=null;
+                        cortina.style.display="none";
+                    }, 1000);
+                }
+            }
+        }
         function pintar() {
             let table=document.createElement("table");
             for (const x of aTablero) {
@@ -56,32 +69,27 @@
                 for (const element of x) {
                     let casilla=document.createElement("td");
                     casilla.innerHTML=`<img src="${element}" class="oculta">`;
-                    casilla.addEventListener("click",async event=>{
-                        cambiarEstado(event.target.children[0])
-                        if(cartaA==null){
-                            cartaA=event.target.children[0];
-                        }else{
-                            console.log(cartaA.getAttribute("src")==event.target.children[0].getAttribute("src"));
-                            if(cartaA.getAttribute("src")==event.target.children[0].getAttribute("src")){
-                                cartaA=null;
-                            }else{
-                                await setTimeout(() => {
-                                    cambiarEstado(cartaA);
-                                    cambiarEstado(event.target.children[0]);
-                                    cartaA=null;
-                                }, 1000);
-                                
-                            }
-                        }
-                        console.log(cartaA);
-                    })
+                    casilla.addEventListener("click",interacionCarta);
                     fila.appendChild(casilla);
                 }
                 table.appendChild(fila);
             }
             document.body.appendChild(table);
         }
+
+        let altura=4;
+        let ancho=4;
+        var aTablero=[];
+        var cartaA=null;
+        for (let y = 0; y < altura; y++) {
+            let fila=[]
+            for (let x = 0; x < ancho; x++) {
+                fila.push(null);
+            }
+            aTablero.push(fila);
+        }
         let aImagenes=[];
+        let cortina=document.getElementById("cortina");
         fetch("https://randomuser.me/api/?results=8")
         .then(resultado=>resultado.json())
         .then(datosJson=>{
@@ -91,8 +99,7 @@
             createTable();
             pintar();
         })
-        .catch(error=> alert("A ocurrido un erro"));
-        
+        .catch(error=> alert("A ocurrido un erro")); 
     </script>
 </body>
 </html>

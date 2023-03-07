@@ -29,6 +29,7 @@
         <input type="radio" name="submenu" id="openPractica10">
         <input type="radio" name="submenu" id="openGranja">
         <input type="radio" name="submenu" id="openExamen">
+        <input type="radio" name="submenu" id="openExame2">
         <ul>
             <li>
                 <label for="close">Salir</label>
@@ -69,6 +70,9 @@
             </li>
             <li>
                 <label for="openExamen">Examen</label>
+            </li>
+            <li>
+                <label for="openExamen2">Examen 2º</label>
             </li>
         </ul>
         <?php
